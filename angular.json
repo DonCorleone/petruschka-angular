@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "petruschka-scully"
+    }
+  },
+  "defaultProject": "petruschka-scully",
+  "cli": {
+    "analytics": false
+  }
 }

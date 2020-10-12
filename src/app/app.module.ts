@@ -3,14 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LayoutComponent } from './layout/layout.component';
+import { EventGroupsComponent } from './event-groups/event-groups.component';
+import { EventGroupCardComponent } from './event-group-card/event-group-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    EventGroupsComponent,
+    EventGroupCardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // ScullyLibModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
