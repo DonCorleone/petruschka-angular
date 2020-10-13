@@ -25,11 +25,13 @@ export class EventGroupsService {
 
   // tslint:disable-next-line:typedef
   getEventGroups() {
-    return this.http.get<EventGroups[]>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroups');
-  }
+    return this.http.get<EventGroups[]>(
+      'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroups');
+      // .forEach(eg => eg.filter(x => eg.some(y => y.id === x.id)));
+    }
 
   getEventGroupById(id: number): Observable<EventGroup | null> {
-      const eventGroups = this.http.get<EventGroup[]>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroup');
+      const eventGroups = this.http.get<EventGroups[]>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroup');
       eventGroups.pipe(map(eventgroup => {
         const filtered = eventgroup.filter(x => x.id === id);
 
