@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './layout/layout.component';
 import { EventGroupsComponent } from './event-groups/event-groups.component';
 import { EventGroupCardComponent } from './event-group-card/event-group-card.component';
+import { EventgroupDetailsComponent } from './eventgroup-details/eventgroup-details.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { EventGroupCardComponent } from './event-group-card/event-group-card.com
     LayoutComponent,
     EventGroupsComponent,
     EventGroupCardComponent,
+    EventgroupDetailsComponent,
   ],
   imports: [
     BrowserModule,

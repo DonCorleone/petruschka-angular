@@ -1,0 +1,9 @@
+<app-layout [title]="eventgroup.name" *ngIf="eventgroup">
+  <div class="actions">
+      <a [routerLink]="['/']" class="actions__link">Eventgroups</a>
+      <span class="actions__separator">➡</span>
+      <span>{{ eventgroup.name }}</span>
+  </div>
+  <app-product-card [showBuyButton]="true" type="horizontal" [eventgroup]="eventgroup">
+  </app-product-card>
+</app-layout>
