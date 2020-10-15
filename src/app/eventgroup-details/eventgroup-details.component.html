@@ -3,7 +3,14 @@
       <a [routerLink]="['/']" class="actions__link">Eventgroups</a>
       <span class="actions__separator">➡</span>
       <span>{{ eventgroup.name }}</span>
+      <div>
+        <img [src]="eventgroup.bannerImagePath" />
+      </div>
   </div>
-  <app-product-card [showBuyButton]="true" type="horizontal" [eventgroup]="eventgroup">
-  </app-product-card>
+  <div class="event-list">
+    <div *ngFor="let event of events$ | async" class="events-list__item">
+        <app-event-card  [eventId]="event.id">
+        </app-event-card>
+    </div>
+</div>
 </app-layout>

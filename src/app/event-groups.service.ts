@@ -24,6 +24,12 @@ export class EventGroupsService {
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
+  getEventsByGroupById(id: number) {
+    return this.http.get<Event[]>(
+      'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventsByGroup');
+  }
+
+  // tslint:disable-next-line:typedef
   getEventGroups() {
     return this.http.get<EventGroups[]>(
       'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroups');
