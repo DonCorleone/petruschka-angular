@@ -1,5 +1,13 @@
 # PetruschkaScully
 
-Inspired by [https://snipcart.com/blog/angular-static-site-generator-scully](https://snipcart.com/blog/angular-static-site-generator-scully)
+Inspired by
 
-Ticketino API: [https://api.ticketino.com/docs/index.html](https://api.ticketino.com/docs/index.html)
+* [angular-static-site-generator-scully](https://snipcart.com/blog/angular-static-site-generator-scully) ([Repo](https://github.com/snipcart/scully-snipcart-store/blob/master/src/app/product-card/product-card.component.html)) ([Demo](https://scully-snipcart-store.netlify.app/))
+* [whats-the-equivalent-of-a-sql-in-statement-in-angularjs](https://stackoverflow.com/questions/42769422/whats-the-equivalent-of-a-sql-in-statement-in-angularjs)
+* [Call REST-full API’s | Web services using Angular and RxJS](https://medium.com/@AnkitMaheshwariIn/call-rest-api-web-services-using-angular-and-rxjs-4f00e833a65)
+* [Call a REST API with API Key](https://morioh.com/p/83fc9efb8c54)
+
+Ticketino API: [api.ticketino.com](https://api.ticketino.com/docs/index.html)
+
+FakeDB JSON Repo: [my-json-server](https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/)
+
