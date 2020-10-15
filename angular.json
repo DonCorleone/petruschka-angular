@@ -66,7 +66,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "petruschka-scully:build"
+            "browserTarget": "petruschka-scully:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

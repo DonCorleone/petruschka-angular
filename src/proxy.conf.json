@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "api.ticketino.com",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
