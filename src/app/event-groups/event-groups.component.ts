@@ -9,10 +9,10 @@ import { EventGroup, EventGroups, EventGroupsService } from '../event-groups.ser
 })
 export class EventGroupsComponent implements OnInit {
 
+  // eventgroups$: Observable<EventGroups[]>;
   eventgroups$: Observable<EventGroups[]>;
 
-  constructor(
-    private eventGroupsService: EventGroupsService) { }
+  constructor(private eventGroupsService: EventGroupsService) { }
 
   ngOnInit(): void {
     this.eventgroups$ = this.eventGroupsService.getEventGroups();

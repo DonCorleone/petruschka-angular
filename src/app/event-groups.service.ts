@@ -31,17 +31,6 @@ export class EventGroupsService {
     }
 
   getEventGroupById(id: number): Observable<EventGroup | null> {
-      const eventGroups = this.http.get<EventGroups[]>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroup');
-      eventGroups.pipe(map(eventgroup => {
-        const filtered = eventgroup.filter(x => x.id === id);
-
-        if (filtered.length > 0) {
-          return filtered[0];
-        }
-
-        return null;
-      }));
-
-      return null;
+      return this.http.get<EventGroup>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroup' + id);
   }
 }
