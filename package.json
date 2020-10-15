@@ -8,9 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mock:server": "json-server --watch mocks/data.json",
+    "mock:server": "npm run concat:mocks && json-server --routes routes.json --watch mocks/data.json",
     "start:proxy": "ng serve --proxy-config proxy.conf.json",
-    "start:proxy:mock:server": "concurrently — kill-others \"npm run mock:server\" \"npm run start:proxy\""
+    "start:proxy:mock:server": "concurrently -- kill-others \"npm run mock:server\" \"npm run start:proxy\"",
+    "concat:mocks": "node \"./mocks/concat-json.js\""
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "concurrently": "^5.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
+    "json-concat": "0.0.1",
     "json-server": "^0.16.2",
     "karma": "~5.0.0",
     "karma-chrome-launcher": "~3.1.0",

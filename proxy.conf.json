@@ -4,7 +4,16 @@
     "secure": false,
     "logLevel": "debug"
   },
-  "/people": {
+  "/starwars/people": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/starwars/universe/planets": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "pathRewrite": {"^/planets": "/planets"}
+  },
+  "/starwars/universe/transport/starships": {
     "target": "http://localhost:3000",
     "secure": false
   }
