@@ -15,7 +15,7 @@
     "numberOfEventGroups": 2,
     "canCrudEventGroups": true
   },
-  "eventGroupDetails": [
+  "eventGroup": [
     {
       "id": 2870,
       "organizerId": 1767019,

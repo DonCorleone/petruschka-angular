@@ -48,6 +48,6 @@ export class EventGroupsService {
 
   getEventGroupById(id: number): Observable<EventGroup | null> {
     return this.http.get<EventGroup>(
-      '/api/eventGroupDetails/' + id);
+      '/api/EventGroup/' + id);
   }
 }
