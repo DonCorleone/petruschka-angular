@@ -3,6 +3,10 @@
     "target": "http://localhost:3000",
     "secure": false
   },
+  "/api/EventGroup": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
   "/starwars/people": {
     "target": "http://localhost:3000",
     "secure": false

@@ -14,5 +14,19 @@
     ],
     "numberOfEventGroups": 2,
     "canCrudEventGroups": true
-  }
+  },
+  "eventGroupDetails": [
+    {
+      "id": 2870,
+      "organizerId": 1767019,
+      "name": "De tapferi Puck rettet s'Elferiich",
+      "bannerImagePath": "https://www.ticketino.com/resources/images/eventgroups/title/2020/07/2870/2870_egp_de_thumb.jpeg"
+    },
+    {
+      "id": 3061,
+      "organizerId": 1767019,
+      "name": "Testgruppe",
+      "bannerImagePath": "https://www.ticketino.com/resources/images/eventgroups/title/2020/10/3061/3061_egp_de_thumb.jpeg"
+    }
+  ]
 }

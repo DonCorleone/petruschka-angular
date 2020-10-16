@@ -4,15 +4,15 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface EventGroupInfo {
-    id: number;
-    name: string;
-    dateCreated: Date;
+  id: number;
+  name: string;
+  dateCreated: Date;
 }
 
 export interface EventGroupOverview {
-    eventGroups: EventGroupInfo[];
-    numberOfEventGroups: number;
-    canCrudEventGroups: boolean;
+  eventGroups: EventGroupInfo[];
+  numberOfEventGroups: number;
+  canCrudEventGroups: boolean;
 }
 
 export interface EventGroups {
@@ -41,14 +41,13 @@ export class EventGroupsService {
       'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventsByGroup');
   }
 
-  // tslint:disable-next-line:typedef
-  getEventGroups() {
+  getEventGroups(): Observable<EventGroupInfo[]> {
     return this.http.get<EventGroupOverview>(
       '/api/eventGroupOverview').pipe(map(p => p.eventGroups));
-      // .forEach(eg => eg.filter(x => eg.some(y => y.id === x.id)));
-    }
+  }
 
   getEventGroupById(id: number): Observable<EventGroup | null> {
-      return this.http.get<EventGroup>('https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroup' + id);
+    return this.http.get<EventGroup>(
+      '/api/eventGroupDetails/' + id);
   }
 }

@@ -1,3 +1,5 @@
 {
-  "/api/eventGroupOverview": "/eventGroupOverview"
+  "/api/*": "/$1",
+  "/api/eventGroupOverview": "/eventGroupOverview",
+  "/api/EventGroup": "/eventGroupDetails"
 }
