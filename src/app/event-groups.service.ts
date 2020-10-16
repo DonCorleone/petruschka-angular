@@ -3,6 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+export interface EventGroupInfo {
+    id: number;
+    name: string;
+    dateCreated: Date;
+}
+
+export interface EventGroupOverview {
+    eventGroups: EventGroupInfo[];
+    numberOfEventGroups: number;
+    canCrudEventGroups: boolean;
+}
+
 export interface EventGroups {
   id: number;
   name: string;
@@ -31,8 +43,8 @@ export class EventGroupsService {
 
   // tslint:disable-next-line:typedef
   getEventGroups() {
-    return this.http.get<EventGroups[]>(
-      'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventGroups');
+    return this.http.get<EventGroupOverview>(
+      '/api/eventGroupOverview').pipe(map(p => p.eventGroups));
       // .forEach(eg => eg.filter(x => eg.some(y => y.id === x.id)));
     }
 
