@@ -1,8 +1,7 @@
 {
-  "/api/*": {
-    "target": "api.ticketino.com",
-    "secure": false,
-    "logLevel": "debug"
+  "/api/eventGroupOverview": {
+    "target": "http://localhost:3000",
+    "secure": false
   },
   "/starwars/people": {
     "target": "http://localhost:3000",
