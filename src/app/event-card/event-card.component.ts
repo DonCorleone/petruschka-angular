@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EventInfo } from '../event.service';
 
 @Component({
   selector: 'app-event-card',
@@ -7,7 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EventCardComponent implements OnInit {
 
-  @Input() type: 'horizontal' | 'vertical' = 'vertical';
+  @Input() type: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() showBuyButton: boolean;
+  @Input() EventInfo: EventInfo;
   constructor() { }
 
   ngOnInit(): void {

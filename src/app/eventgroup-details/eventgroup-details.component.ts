@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventGroup, EventGroupsService } from '../event-groups.service';
+import { EventInfo, EventService } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { EventGroup, EventGroupsService } from '../event-groups.service';
 
 @Component({
   selector: 'app-eventgroup-details',
@@ -11,11 +12,12 @@ import { Observable } from 'rxjs';
 })
 export class EventgroupDetailsComponent implements OnInit {
   eventgroup: EventGroup;
-  events$: Observable<Event[]>;
+  eventInfos$: Observable<EventInfo[]>;
 
   constructor(
     private route: ActivatedRoute,
-    private eventgroupService: EventGroupsService) { }
+    private eventgroupService: EventGroupsService,
+    private eventservice: EventService) { }
 
   ngOnInit(): void {
     this.route.params
@@ -27,7 +29,7 @@ export class EventgroupDetailsComponent implements OnInit {
     this.route.params
       .pipe(map(p => p.eventgroupId))
       .subscribe(id => {
-        this.events$ = this.eventgroupService.getEventsByGroupById(id);
+        this.eventInfos$ = this.eventservice.getEventsByGroupById(id);
       });
   }
 }

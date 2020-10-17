@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventGroup, EventGroups, EventGroupsService } from '../event-groups.service';
+import { EventGroupInfo, EventGroupsService } from '../event-groups.service';
 
 @Component({
   selector: 'app-eventgroups',
@@ -9,8 +9,7 @@ import { EventGroup, EventGroups, EventGroupsService } from '../event-groups.ser
 })
 export class EventGroupsComponent implements OnInit {
 
-  // eventgroups$: Observable<EventGroups[]>;
-  eventgroups$: Observable<EventGroups[]>;
+  eventgroups$: Observable<EventGroupInfo[]>;
 
   constructor(private eventGroupsService: EventGroupsService) { }
 

@@ -15,12 +15,6 @@ export interface EventGroupOverview {
   canCrudEventGroups: boolean;
 }
 
-export interface EventGroups {
-  id: number;
-  name: string;
-  dateCreated: Date;
-}
-
 export interface EventGroup {
   id: number;
   organizerId: number;
@@ -34,12 +28,6 @@ export interface EventGroup {
 export class EventGroupsService {
 
   constructor(private http: HttpClient) { }
-
-  // tslint:disable-next-line:typedef
-  getEventsByGroupById(id: number) {
-    return this.http.get<Event[]>(
-      'https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/EventsByGroup');
-  }
 
   getEventGroups(): Observable<EventGroupInfo[]> {
     return this.http.get<EventGroupOverview>(

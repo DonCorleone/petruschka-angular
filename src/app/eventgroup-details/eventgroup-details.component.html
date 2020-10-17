@@ -8,8 +8,8 @@
       </div>
   </div>
   <div class="event-list">
-    <div *ngFor="let event of events$ | async" class="events-list__item">
-        <app-event-card  [eventId]="event.id">
+    <div *ngFor="let eventInfo of eventInfos$ | async" class="events-list__item">
+        <app-event-card  [EventInfo]="eventInfo">
         </app-event-card>
     </div>
 </div>

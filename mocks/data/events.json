@@ -1,0 +1,407 @@
+{
+  "2870": {
+    "events": [
+      {
+        "id": 98623,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-08-26T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98589,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-08-29T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98624,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-08-30T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98651,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-02T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98652,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-05T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98653,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-06T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98654,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-09T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98655,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-12T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98656,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-13T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98657,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-16T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98658,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-19T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98659,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-20T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98660,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-23T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98661,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-26T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98662,
+        "name": "De tapferi Puck rettet s'Elferiich",
+        "start": "2020-09-27T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      }
+    ],
+    "numberOfEvents": 15
+  },
+  "3061": {
+    "events": [
+      {
+        "id": 98623,
+        "name": "Testevent2",
+        "start": "2020-08-26T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98589,
+        "name": "Testevent2",
+        "start": "2020-08-29T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98624,
+        "name": "Testevent2",
+        "start": "2020-08-30T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98651,
+        "name": "Testevent2",
+        "start": "2020-09-02T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98652,
+        "name": "Testevent2",
+        "start": "2020-09-05T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98653,
+        "name": "Testevent2",
+        "start": "2020-09-06T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98654,
+        "name": "Testevent2",
+        "start": "2020-09-09T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98655,
+        "name": "Testevent2",
+        "start": "2020-09-12T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98656,
+        "name": "Testevent2",
+        "start": "2020-09-13T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98657,
+        "name": "Testevent2",
+        "start": "2020-09-16T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98658,
+        "name": "Testevent2",
+        "start": "2020-09-19T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98659,
+        "name": "Testevent2",
+        "start": "2020-09-20T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98660,
+        "name": "Testevent2",
+        "start": "2020-09-23T15:00:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98661,
+        "name": "Testevent2",
+        "start": "2020-09-26T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 98662,
+        "name": "Testevent2",
+        "start": "2020-09-27T14:30:00+02:00",
+        "canBeRemovedFromEventGroup": true
+      }
+    ],
+    "numberOfEvents": 15
+  },
+  "3080": {
+    "events": [
+      {
+        "id": 116816,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-05T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116817,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-05T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116826,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-06T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116835,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-09T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116818,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-12T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116827,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-13T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116836,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-16T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116819,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-19T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116828,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-20T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116844,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-22T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116837,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-23T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116820,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-26T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116829,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-27T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116845,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-29T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116838,
+        "name": "De Frau Emma iri Tier",
+        "start": "2020-12-30T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116821,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-02T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116830,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-03T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116846,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-05T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116839,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-06T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116822,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-09T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116831,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-10T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116847,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-12T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116840,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-13T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116823,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-16T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116832,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-17T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116848,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-19T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116841,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-20T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116824,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-23T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116833,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-24T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116849,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-26T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116842,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-27T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116825,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-30T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116834,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-01-31T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116850,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-02-02T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      },
+      {
+        "id": 116843,
+        "name": "De Frau Emma iri Tier",
+        "start": "2021-02-03T14:30:00+01:00",
+        "canBeRemovedFromEventGroup": true
+      }
+    ],
+    "numberOfEvents": 35
+  }
+}

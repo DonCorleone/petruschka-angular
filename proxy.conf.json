@@ -7,6 +7,22 @@
     "target": "http://localhost:3000",
     "secure": false
   },
+  "/api/eventOverview": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/api/2870": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/api/3061": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/api/3080": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
   "/starwars/people": {
     "target": "http://localhost:3000",
     "secure": false
