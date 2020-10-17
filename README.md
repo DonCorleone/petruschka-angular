@@ -7,6 +7,7 @@ Inspired by
 * [Call REST-full API’s | Web services using Angular and RxJS](https://medium.com/@AnkitMaheshwariIn/call-rest-api-web-services-using-angular-and-rxjs-4f00e833a65)
 * [Call a REST API with API Key](https://morioh.com/p/83fc9efb8c54)
 * [JSON Mock Server Part 1](https://medium.com/@websleengur/mock-data-for-angular-5-applications-with-json-server-part-1-d377eced223b) [Part 2](https://medium.com/@websleengur/mock-data-for-angular-5-applications-with-json-server-part-2-final-427bd68005bb)
+* [JSON-Server](https://github.com/typicode/json-server)
 
 Ticketino API: [api.ticketino.com](https://api.ticketino.com/docs/index.html)
 

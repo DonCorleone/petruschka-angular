@@ -8,10 +8,11 @@ import { EventInfo } from '../event.service';
 })
 export class EventCardComponent implements OnInit {
 
-  @Input() type: 'horizontal' | 'vertical' = 'horizontal';
-  @Input() showBuyButton: boolean;
-  @Input() EventInfo: EventInfo;
   constructor() { }
+
+  @Input() type: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() eventInfo: EventInfo;
+  @Input() showBuyButton: boolean;
 
   ngOnInit(): void {
   }

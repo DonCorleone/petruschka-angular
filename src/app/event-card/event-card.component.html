@@ -1,25 +1,9 @@
-<div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
-  <div class="card-image">
-
-      <span class="card-title" *ngIf="type !== 'horizontal'">{{ EventInfo.name }}</span>
+<li class="collection-item">
+  <div>{{ eventInfo.start | date:'fullDate'}}
+    <a [href]="['https://www.ticketino.com/de/Event/De-Frau-Emma-iri-Tier/' + eventInfo.id]" *ngIf="showBuyButton"
+      class="secondary-content">
+      <img src="http://cockpitv2.ticketino.com/imagesnew/de/button_kaufen_klein_03.1.png" alt="Tickets bei TICKETINO"
+        border="0" />
+    </a>
   </div>
-  <div [ngClass]="{'card-stacked': type === 'horizontal'}">
-      <div class="card-content">
-          <p class="event-card__description">
-              {{ EventInfo.name }}
-          </p>
-          <p class="event-card__price">
-              {{ EventInfo.start }}
-          </p>
-      </div>
-      <div class="card-action">
-        <a [routerLink]="['/events/' + EventInfo.id]" *ngIf="!showBuyButton">
-          View Event
-      </a>
-      <button class="snipcart-add-item waves-effect waves-light btn-large btn"
-          *ngIf="showBuyButton">
-          Tickets
-      </button>
-      </div>
-  </div>
-</div>
+</li>

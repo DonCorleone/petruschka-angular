@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventInfo, EventService } from '../event.service';
 import { map } from 'rxjs/operators';
@@ -18,6 +18,9 @@ export class EventgroupDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private eventgroupService: EventGroupsService,
     private eventservice: EventService) { }
+
+  // tslint:disable-next-line:no-inferrable-types
+  @Input() showBuyButton: boolean = true;
 
   ngOnInit(): void {
     this.route.params
