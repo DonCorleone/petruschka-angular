@@ -20,6 +20,10 @@ export interface EventOverview {
   providedIn: 'root'
 })
 export class EventService {
+  getEventById(id: number): Observable<Event> {
+    return this.http.get<Event>(
+      '/api/Event/' + id);
+  }
 
   constructor(private http: HttpClient) { }
 

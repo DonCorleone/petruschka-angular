@@ -11,8 +11,10 @@ import { EventGroup, EventGroupsService } from '../event-groups.service';
   styleUrls: ['./eventgroup-details.component.scss']
 })
 export class EventgroupDetailsComponent implements OnInit {
+
   eventgroup: EventGroup;
   eventInfos$: Observable<EventInfo[]>;
+  eventInfoPrototype: Observable<Event>;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +35,12 @@ export class EventgroupDetailsComponent implements OnInit {
       .pipe(map(p => p.eventgroupId))
       .subscribe(id => {
         this.eventInfos$ = this.eventservice.getEventsByGroupById(id);
+      });
+
+    this.eventInfos$
+      .pipe(map(p => p[0].id))
+      .subscribe(id => {
+        this.eventInfoPrototype = this.eventservice.getEventById(id);
       });
   }
 }
