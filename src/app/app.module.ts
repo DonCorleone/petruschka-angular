@@ -9,6 +9,7 @@ import { EventGroupsComponent } from './event-groups/event-groups.component';
 import { EventGroupCardComponent } from './event-group-card/event-group-card.component';
 import { EventgroupDetailsComponent } from './eventgroup-details/eventgroup-details.component';
 import { EventCardComponent } from './event-card/event-card.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EventCardComponent } from './event-card/event-card.component';
     AppRoutingModule,
     // ScullyLibModule,
     HttpClientModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
