@@ -12,3 +12,8 @@ Inspired by
 Ticketino API: [api.ticketino.com](https://api.ticketino.com/docs/index.html)
 
 FakeDB JSON Repo: [my-json-server](https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/)
+
+
+### MongoDB Atlas ConnectionString 
+
+```mongodb+srv://dbAdmin:<password>@cluster0.x3l7f.mongodb.net/<dbname>?retryWrites=true&w=majority```
