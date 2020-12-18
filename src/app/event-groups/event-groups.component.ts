@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventGroupInfo, EventGroupsService } from '../event-groups.service';
-import { Subscription } from 'rxjs';
 import { Apollo, gql } from 'apollo-angular';
+import { map } from 'rxjs/internal/operators/map';
 
 // We use the gql tag to parse our query string into a query document
 const GET_EVENT_GROUPS_INFOS = gql`
@@ -25,22 +25,11 @@ export class EventGroupsComponent implements OnInit {
   eventgroups$: Observable<EventGroupInfo[]>;
   loading: boolean;
 
-  private querySubscription: Subscription;
-
-  constructor(private eventGroupsService: EventGroupsService, private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.querySubscription = this.apollo.watchQuery<any>({
-      query: GET_EVENT_GROUPS_INFOS
-    })
-      .valueChanges
-      .subscribe(({ data, loading }) => {
-        this.loading = loading;
-        this.eventgroups$ = data.eventGroupInfos;
-      });
-  }
-
-  ngOnDestroy() {
-    this.querySubscription.unsubscribe();
+    this.eventgroups$ = this.apollo
+      .watchQuery<any>({query: GET_EVENT_GROUPS_INFOS})
+      .valueChanges.pipe(map((result) => result.data.eventGroupInfos));
   }
 }

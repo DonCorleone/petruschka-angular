@@ -8,7 +8,7 @@
   </h3>
 
   <div class="eventgroups-list">
-      <div *ngFor="let eventgroup of eventgroups$" class="eventgroups-list__item">
+      <div *ngFor="let eventgroup of eventgroups$ | async" class="eventgroups-list__item">
           <app-event-group-card  [eventgroupId]="eventgroup.id">
           </app-event-group-card>
       </div>
