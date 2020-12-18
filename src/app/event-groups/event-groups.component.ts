@@ -1,7 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { EventGroupInfo, EventGroupsService } from '../event-groups.service';
+import { Subscription } from 'rxjs';
+import { Apollo, gql } from 'apollo-angular';
+
+// We use the gql tag to parse our query string into a query document
+const GET_EVENT_GROUPS_INFOS = gql`
+  query GetEventGroupInfos {
+    eventGroupInfos{
+      name,
+      id,
+      dateCreated
+    }
+  }
+`;
 
 @Component({
   selector: 'app-eventgroups',
@@ -11,26 +23,24 @@ import { EventGroupInfo, EventGroupsService } from '../event-groups.service';
 export class EventGroupsComponent implements OnInit {
 
   eventgroups$: Observable<EventGroupInfo[]>;
+  loading: boolean;
 
-  constructor(private eventGroupsService: EventGroupsService, private apollo: Apollo) {
+  private querySubscription: Subscription;
 
-    this.apollo.watchQuery<any>({
-      query: gql`
-        query {
-            eventGroupInfos{
-              name,
-              id,
-              dateCreated
-            }
-          }
-        `
-    }).valueChanges.subscribe(({ data, loading }) => {
-      this.eventgroups$ = data.eventGroupInfos;
-  });
+  constructor(private eventGroupsService: EventGroupsService, private apollo: Apollo) {}
+
+  ngOnInit() {
+    this.querySubscription = this.apollo.watchQuery<any>({
+      query: GET_EVENT_GROUPS_INFOS
+    })
+      .valueChanges
+      .subscribe(({ data, loading }) => {
+        this.loading = loading;
+        this.eventgroups$ = data.eventGroupInfos;
+      });
   }
 
-  ngOnInit(): void {
-   // this.eventgroups$ = this.eventGroupsService.getEventGroups();
-
+  ngOnDestroy() {
+    this.querySubscription.unsubscribe();
   }
 }
