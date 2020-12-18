@@ -14,23 +14,23 @@ export class EventGroupsComponent implements OnInit {
 
   constructor(private eventGroupsService: EventGroupsService, private apollo: Apollo) {
 
-    this.apollo.watchQuery({
+    this.apollo.watchQuery<any>({
       query: gql`
-        {
-          eventGroupInfos{
-            name,
-            id,
-            dateCreated
+        query {
+            eventGroupInfos{
+              name,
+              id,
+              dateCreated
+            }
           }
-        }
-      `
-    }).valueChanges.subscribe(r => {
-      console.log(r);
-    });
+        `
+    }).valueChanges.subscribe(({ data, loading }) => {
+      this.eventgroups$ = data.eventGroupInfos;
+  });
   }
 
   ngOnInit(): void {
-    this.eventgroups$ = this.eventGroupsService.getEventGroups();
+   // this.eventgroups$ = this.eventGroupsService.getEventGroups();
 
   }
 }
