@@ -16,7 +16,7 @@ export interface EventGroupOverview {
 }
 
 export interface EventGroup {
-  id: number;
+  _id: number;
   organizerId: number;
   name: string;
   bannerImagePath: string;
