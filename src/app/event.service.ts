@@ -3,9 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+export interface EventGroupEventEvent {
+  _id: number;
+  name: string;
+  start: Date;
+}
+
+export interface EventGroupEvent {
+  eventGroupId: number;
+  events: EventGroupEventEvent[];
+}
 
 export interface EventInfo {
-  id: number;
+  _id: number;
   name: string;
   start: Date;
   canBeRemovedFromEventGroup: boolean;
