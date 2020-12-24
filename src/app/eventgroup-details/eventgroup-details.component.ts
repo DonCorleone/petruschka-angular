@@ -47,7 +47,7 @@ export class EventgroupDetailsComponent implements OnInit {
   private querySubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute, private  apollo : Apollo) { }
+    private route: ActivatedRoute, private  apollo : Apollo, private eventService: EventService ) { }
 
   // tslint:disable-next-line:no-inferrable-types
   @Input() showBuyButton: boolean = true;
@@ -79,10 +79,10 @@ export class EventgroupDetailsComponent implements OnInit {
           .pipe(map(p => p[0].events))
         });
 
-    // this.eventInfos$
-    //   .pipe(map(p => p[0].id))
-    //   .subscribe(id => {
-    //     this.eventInfoPrototype = this.eventservice.getEventById(id);
-    //   });
+      this.eventInfos$
+        .pipe(map(p => p[0]._id))
+        .subscribe(id => {
+          this.eventInfoPrototype = this.eventService.getEventById(id);
+        });
   }
 }

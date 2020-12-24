@@ -23,9 +23,17 @@ const GET_EVENTGROUP_BYID = gql`
 })
 export class EventGroupCardComponent implements OnInit {
 
-  get name() { return (this.eventgroup && this.eventgroup.name) ? this.eventgroup.name : null }
-  get bannerImagePath() { return (this.eventgroup && this.eventgroup.bannerImagePath) ? this.eventgroup.bannerImagePath : null }
-  get eventGroupId() { return (this.eventgroup && this.eventgroup._id) ? this.eventgroup._id : null }
+  get name() {
+    return (this.eventgroup && this.eventgroup.name) ? this.eventgroup.name : null;
+  }
+
+  get bannerImagePath() {
+    return (this.eventgroup && this.eventgroup.bannerImagePath) ? this.eventgroup.bannerImagePath : null;
+  }
+
+  get eventGroupId() {
+    return (this.eventgroup && this.eventgroup._id) ? this.eventgroup._id : null;
+  }
 
   eventgroup: EventGroup;
   private querySubscription: Subscription;
