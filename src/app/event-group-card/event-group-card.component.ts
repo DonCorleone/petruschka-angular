@@ -1,11 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, Subscription } from 'rxjs';
-import { EventGroup, EventGroupsService } from '../event-groups.service';
+import { EventGroup } from '../event-groups.service';
+import { GetEventGroupById } from '../event.service';
 
-interface GetEventGroupById{
-  eventGroup: EventGroup
-}
 const GET_EVENTGROUP_BYID = gql`
   query GetEventGroupById($id: Int!) {
     eventGroup (query:{_id:$id}){

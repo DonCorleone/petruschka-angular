@@ -9,7 +9,7 @@ export interface EventGroupOverview {
   dateCreated: Date;
 }
 
-export interface EventGroupOverviews {
+export interface GetEventGroupOverviews {
   eventGroupOverviews: EventGroupOverview[];
 }
 
@@ -32,8 +32,8 @@ export class EventGroupsService {
   //     '/api/eventGroupOverview').pipe(map(p => p.eventGroups));
   // }
 
-  getEventGroupById(id: number): Observable<EventGroup | null> {
-    return this.http.get<EventGroup>(
-      '/api/EventGroup/' + id);
-  }
+  // getEventGroupById(id: number): Observable<EventGroup | null> {
+  //   return this.http.get<EventGroup>(
+  //     '/api/EventGroup/' + id);
+  // }
 }

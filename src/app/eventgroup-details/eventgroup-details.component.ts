@@ -1,14 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventGroupEvent, EventGroupEventEvent, EventInfo, EventService } from '../event.service';
+import { EventGroupEventEvent, EventService, GetEventGroupById, GetEventsByGroupId } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { EventGroup } from '../event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
 
-interface GetEventGroupById{
-  eventGroup: EventGroup
-}
 const GET_EVENTGROUP_BYID = gql`
   query GetEventGroupById($id: Int!) {
     eventGroup (query:{_id:$id}){
@@ -19,9 +16,6 @@ const GET_EVENTGROUP_BYID = gql`
   }
 `;
 
-interface GetEventsByGroupId{
-  eventGroupEvents: EventGroupEvent[]
-}
 const GET_EVENTS_BYGROUPID = gql`
   query GetEventsByGroupId($eventGroupId: Int!){
     eventGroupEvents(query:{eventGroupId:$eventGroupId}){

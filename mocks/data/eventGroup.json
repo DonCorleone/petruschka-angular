@@ -1,0 +1,10 @@
+{
+  "data": {
+    "eventGroup": {
+      "__typename": "EventGroup",
+      "_id": 2870,
+      "bannerImagePath": "https://www.ticketino.com/resources/images/eventgroups/title/2020/07/2870/2870_egp_de_thumb.jpeg",
+      "name": "De tapferi Puck rettet s'Elferiich"
+    }
+  }
+}

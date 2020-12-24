@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventGroupOverview, EventGroupOverviews } from '../event-groups.service';
+import { EventGroupOverview, GetEventGroupOverviews } from '../event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/internal/operators/map';
 
@@ -29,7 +29,7 @@ export class EventGroupsComponent implements OnInit {
 
   ngOnInit() {
     this.eventgroups$ = this.apollo
-      .watchQuery<EventGroupOverviews>({query: GET_EVENT_GROUPS_INFOS})
+      .watchQuery<GetEventGroupOverviews>({query: GET_EVENT_GROUPS_INFOS})
       .valueChanges.pipe(map((result) => result.data.eventGroupOverviews));
   }
 }
