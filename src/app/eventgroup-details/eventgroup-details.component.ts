@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventGroupEventEvent, EventInfo, EventService, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
+import { EventGroupEventEvent, EventInfo, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { EventGroup } from '../event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const GET_EVENTGROUP_BYID = gql`
   query GetEventGroupById($id: Int!) {
@@ -67,10 +68,18 @@ export class EventgroupDetailsComponent implements OnInit {
     return (this.eventInfoPrototype && this.eventInfoPrototype.artists) ? this.eventInfoPrototype.artists : null;
   }
 
+  get plot() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.longDescription) ? this.transformHtml(this.eventInfoPrototype.longDescription) : null;
+  }
+
+  get flyerImagePath() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.bannerImagePath) ? this.eventInfoPrototype.bannerImagePath : null;
+  }
+
   private querySubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute, private  apollo : Apollo, private eventService: EventService ) { }
+    private route: ActivatedRoute, private  apollo : Apollo, private sanitizer: DomSanitizer ) { }
 
   // tslint:disable-next-line:no-inferrable-types
   @Input() showBuyButton: boolean = true;
@@ -116,5 +125,8 @@ export class EventgroupDetailsComponent implements OnInit {
           this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
         });
     });
+  }
+  transformHtml(htmlTextWithStyle) {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
   }
 }

@@ -1,16 +1,15 @@
 <app-layout [title]="eventgroup.name" *ngIf="eventgroup">
   <div class="actions">
-      <a [routerLink]="['/']" class="actions__link">Eventgroups</a>
+      <a [routerLink]="['/']" class="actions__link">Veranstaltungen</a>
       <span class="actions__separator">➡</span>
       <span>{{ eventgroup.name }}</span>
-      <div>
-        <img [src]="eventgroup.bannerImagePath" />
-      </div>
   </div>
+
+  <img [src]="flyerImagePath" class="bannerImage" />
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-        <span class="card-title">Location</span>
+        Location
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
@@ -25,18 +24,24 @@
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-        <span class="card-title">Artists</span>
+      Artists
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
-          <address>
-            {{ artists }}
-          </address>
+          <div [innerHTML]="artists"></div>
         </div>
     </div>
-
   </div>
-
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+       Plot
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div [innerHTML]="plot"></div>
+        </div>
+    </div>
+  </div>
   <div class="event-list">
     <ul *ngFor="let eventInfo of eventInfos$ | async" class="collection">
       <app-event-card  [eventInfo]="eventInfo" [showBuyButton]="showBuyButton">
