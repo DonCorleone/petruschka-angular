@@ -10,6 +10,7 @@ import { EventGroupCardComponent } from './event-group-card/event-group-card.com
 import { EventgroupDetailsComponent } from './eventgroup-details/eventgroup-details.component';
 import { EventCardComponent } from './event-card/event-card.component';
 import { GraphQLModule } from './graphql.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GraphQLModule } from './graphql.module';
     // ScullyLibModule,
     HttpClientModule,
     GraphQLModule,
+    ScullyLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
