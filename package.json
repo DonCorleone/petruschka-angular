@@ -13,7 +13,9 @@
     "start:proxy:mock:server": "concurrently -- kill-others \"npm run mock:server\" \"npm run start:proxy\"",
     "concat:mocks": "node \"./mocks/concat-json.js\"",
     "scully": "scully",
-    "scully:serve": "scully serve"
+    "scully:serve": "scully serve",
+    "jam-it": "ng build && npm run scully -- --scanRoutes",
+    "jam-it:serve": "npm run jam-it && npm run scully serve"
   },
   "private": true,
   "dependencies": {
