@@ -8,6 +8,10 @@ import { EventGroupEventEvent, EventInfo } from '../event.service';
 })
 export class EventCardComponent implements OnInit {
 
+  get eventLink(){
+    return this.eventInfo ? "https://www.ticketino.com/de/Event/" + this.eventInfo.name + "/" + this.eventInfo._id: "";
+  }
+
   constructor() { }
 
   @Input() type: 'horizontal' | 'vertical' = 'horizontal';
