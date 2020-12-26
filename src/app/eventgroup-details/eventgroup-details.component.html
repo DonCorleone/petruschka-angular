@@ -7,6 +7,36 @@
         <img [src]="eventgroup.bannerImagePath" />
       </div>
   </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+        <span class="card-title">Location</span>
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <address>
+            {{ address }}
+            {{ city }}
+          </address>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+        <span class="card-title">Artists</span>
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <address>
+            {{ artists }}
+          </address>
+        </div>
+    </div>
+
+  </div>
+
   <div class="event-list">
     <ul *ngFor="let eventInfo of eventInfos$ | async" class="collection">
       <app-event-card  [eventInfo]="eventInfo" [showBuyButton]="showBuyButton">

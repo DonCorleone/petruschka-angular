@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventGroupEventEvent, EventService, GetEventGroupById, GetEventsByGroupId } from '../event.service';
+import { EventGroupEventEvent, EventInfo, EventService, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { EventGroup } from '../event-groups.service';
@@ -28,6 +28,23 @@ const GET_EVENTS_BYGROUPID = gql`
     }
   }
 `;
+
+const GET_EVENTINFO_BYID = gql`
+  query GetEventsByGroupId($eventId: Int!){
+    eventDetails(query:{_id:$eventId}){
+      eventInfos{
+        languageId
+        shortDescription
+        longDescription
+        address
+        location
+        bannerImagePath
+        artists
+      }
+    }
+  }
+`;
+
 @Component({
   selector: 'app-eventgroup-details',
   templateUrl: './eventgroup-details.component.html',
@@ -37,7 +54,19 @@ export class EventgroupDetailsComponent implements OnInit {
 
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;
-  eventInfoPrototype: Observable<Event>;
+  eventInfoPrototype: EventInfo;
+  get address() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.address) ? this.eventInfoPrototype.address : null;
+  }
+
+  get city() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.city) ? this.eventInfoPrototype.city : null;
+  }
+
+  get artists() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.artists) ? this.eventInfoPrototype.artists : null;
+  }
+
   private querySubscription: Subscription;
 
   constructor(
@@ -71,12 +100,21 @@ export class EventgroupDetailsComponent implements OnInit {
         .valueChanges
           .pipe(map((result) => result.data.eventGroupEvents))
           .pipe(map(p => p[0].events))
-        });
+      });
 
-      this.eventInfos$
-        .pipe(map(p => p[0]._id))
-        .subscribe(id => {
-          this.eventInfoPrototype = this.eventService.getEventById(id);
+    this.eventInfos$
+      .pipe(map(p => p[0]._id))
+      .subscribe(id => {
+        this.querySubscription = this.apollo
+        .watchQuery<GetEventInfoById>({
+          query: GET_EVENTINFO_BYID,
+          variables: {
+            eventId: id,
+          },
+        })
+        .valueChanges.subscribe(({data}) => {
+          this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
         });
+    });
   }
 }
