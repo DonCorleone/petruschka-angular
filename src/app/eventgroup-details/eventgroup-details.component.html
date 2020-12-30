@@ -13,10 +13,7 @@
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
-          <address>
-            {{ address }}
-            {{ city }}
-          </address>
+          <a [routerLink]="['/locations', locationName]">{{ locationName }}</a>
         </div>
     </div>
 

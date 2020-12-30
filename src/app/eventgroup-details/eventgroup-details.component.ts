@@ -56,12 +56,8 @@ export class EventgroupDetailsComponent implements OnInit {
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;
   eventInfoPrototype: EventInfo;
-  get address() {
-    return (this.eventInfoPrototype && this.eventInfoPrototype.address) ? this.eventInfoPrototype.address : null;
-  }
-
-  get city() {
-    return (this.eventInfoPrototype && this.eventInfoPrototype.city) ? this.eventInfoPrototype.city : null;
+  get locationName() {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.location) ? this.eventInfoPrototype.location : null;
   }
 
   get artists() {
