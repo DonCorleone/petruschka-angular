@@ -29,8 +29,11 @@ export class LocationComponent implements OnInit {
   eventLocation$: Observable<EventLocation>;
   constructor(private route: ActivatedRoute, private  apollo : Apollo, private sanitizer: DomSanitizer ) { }
 
-  @Input() eventLocationName:String;
+  @Input() eventLocationName:string;
 
+  GetImageUrl(name: string): string{
+    return '../assets/images/' + encodeURIComponent(name) + '.jpg'
+  }
   ngOnInit(): void {
 
     this.route.params
