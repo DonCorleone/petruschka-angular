@@ -17,6 +17,7 @@ import {HttpLink} from 'apollo-angular/http';
 import * as realm from './realm';
 import { HttpHeaders } from '@angular/common/http';
 import { LocationComponent } from './location/location.component';
+import { StaffComponent } from './staff/staff.component';
 const uri = realm.graphqlUrl;
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -38,6 +39,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     EventgroupDetailsComponent,
     EventCardComponent,
     LocationComponent,
+    StaffComponent,
   ],
   imports: [
     BrowserModule,
