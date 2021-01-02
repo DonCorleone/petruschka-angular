@@ -28,10 +28,6 @@ export class StaffComponent implements OnInit {
 
   @Input() staffName:string;
 
-  GetImageUrl(name: string): string{
-    return '../assets/images/' + encodeURIComponent(name) + '.jpg'
-  }
-
   ngOnInit(): void {
 
     this.route.params
@@ -46,7 +42,12 @@ export class StaffComponent implements OnInit {
         .valueChanges.pipe(map((result) => result.data.staff));
       })
   }
+
   transformHtml(htmlTextWithStyle) {
     return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
+  }
+
+  GetImageUrl(name: string): string {
+    return '../assets/images/' + encodeURIComponent(name) + '.jpg'
   }
 }

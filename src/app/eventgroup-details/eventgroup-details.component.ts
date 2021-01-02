@@ -46,6 +46,11 @@ const GET_EVENTINFO_BYID = gql`
   }
 `;
 
+interface job {
+  name: string,
+  jobsharers: string[]
+}
+
 @Component({
   selector: 'app-eventgroup-details',
   templateUrl: './eventgroup-details.component.html',
@@ -56,12 +61,14 @@ export class EventgroupDetailsComponent implements OnInit {
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;
   eventInfoPrototype: EventInfo;
+  artistsArray: job[];
+
   get locationName() {
     return (this.eventInfoPrototype && this.eventInfoPrototype.location) ? this.eventInfoPrototype.location : null;
   }
 
   get artists() {
-    return (this.eventInfoPrototype && this.eventInfoPrototype.artists) ? this.eventInfoPrototype.artists : null;
+    return (this.artistsArray && this.artistsArray.length > 0) ? this.artistsArray : null;
   }
 
   get plot() {
@@ -119,10 +126,41 @@ export class EventgroupDetailsComponent implements OnInit {
         })
         .valueChanges.subscribe(({data}) => {
           this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
+          this.artistsArray = this.GetStaffLinks(this.eventInfoPrototype.artists);
         });
     });
   }
+
   transformHtml(htmlTextWithStyle) {
     return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
+  }
+
+  GetStaffLinks(staff: string): job [] {
+
+    let jobs = staff.split('|');
+    let returnval: job [] = [];
+
+    jobs.forEach(job => {
+    let ixOfSplitter = job.indexOf(':');
+
+      let jobsharerArray: string[] = [];
+
+      let jobdesc: string = job.slice(0, ixOfSplitter);
+      let jobsharers = job.substring(ixOfSplitter + 1).split('&');
+
+      jobsharers.forEach(jobsharePartner => {
+
+        jobsharerArray.push(jobsharePartner.trim());
+      });
+
+      var jobObject: job = {
+        name: jobdesc.trim(),
+        jobsharers: jobsharerArray
+      }
+
+      returnval.push(jobObject)
+    });
+
+    return returnval;
   }
 }

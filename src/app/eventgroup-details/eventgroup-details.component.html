@@ -25,7 +25,15 @@
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
-          <div [innerHTML]="artists"></div>
+          <div *ngFor="let job of artistsArray">
+            <div>
+              {{ job.name }} :
+              <span *ngFor="let jobsharer of job.jobsharers; let isLast=last">
+                <a [routerLink]="['/staff', jobsharer]">{{ jobsharer }}</a> {{isLast ? '' : ' & '}}
+              </span>
+            </div>
+          </div>
+
         </div>
     </div>
   </div>
