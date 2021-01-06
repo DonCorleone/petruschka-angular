@@ -27,13 +27,12 @@
         <div class="card-content">
           <div *ngFor="let job of artistsArray">
             <div>
-              {{ job.name }} :
+              {{ job.name }} {{ job.name !== '' ? ' : ' : '' }}
               <span *ngFor="let jobsharer of job.jobsharers; let isLast=last">
                 <a [routerLink]="['/staff', jobsharer]">{{ jobsharer }}</a> {{isLast ? '' : ' & '}}
               </span>
             </div>
           </div>
-
         </div>
     </div>
   </div>
