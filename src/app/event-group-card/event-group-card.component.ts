@@ -4,6 +4,17 @@ import { Observable, Subscription } from 'rxjs';
 import { EventGroup } from '../event-groups.service';
 import { GetEventGroupById } from '../event.service';
 
+const GET_CD_EVENTS = gql`
+  query {
+    eventDetails(query:{facebookPixelId:"CD"}){
+      facebookPixelId
+      eventInfos{
+        eventName
+        bannerImagePath
+      }
+    }
+  }
+`;
 const GET_EVENTGROUP_BYID = gql`
   query GetEventGroupById($id: Int!) {
     eventGroup (query:{_id:$id}){

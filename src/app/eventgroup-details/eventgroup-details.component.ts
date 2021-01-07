@@ -31,7 +31,7 @@ const GET_EVENTS_BYGROUPID = gql`
 `;
 
 const GET_EVENTINFO_BYID = gql`
-  query GetEventsByGroupId($eventId: Int!){
+  query GetEventByGroupId($eventId: Int!){
     eventDetails(query:{_id:$eventId}){
       eventInfos{
         languageId
