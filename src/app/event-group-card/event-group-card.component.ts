@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { gql, Subscription } from 'apollo-angular';
-import { EventDetail } from '../event.service';
-const GET_EVENTGROUP_BYID = gql`
-  query GetEventGroupById($id: Int!) {
-    eventGroup (query:{_id:$id}){
-      name,
-      _id,
-      bannerImagePath
+import { Apollo, gql } from 'apollo-angular';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { EventDetail, GetEventGroupIdByEventId, GetEventsByGroupId } from '../event.service';
+const GET_EVENTGROUPID_BYEVENTID = gql`
+  query GetEventGroupIdByEventId($eventId: Int!, $usage: String!) {
+    eventEventGroupUsageEvent (query:{eventId:$eventId, usage:$usage}){
+      eventGroupId
     }
   }
 `;
@@ -31,25 +31,25 @@ export class EventGroupCardComponent implements OnInit {
   }
 
   @Input() eventDetail: EventDetail;
-
-  eventgroupId: number;
+  @Input() usage: string;
   @Input() type: 'horizontal' | 'vertical' = 'vertical';
   @Input() showBuyButton: boolean;
 
+  eventgroupId$: Observable<number>;
+
+  constructor(private apollo: Apollo) {}
+
   ngOnInit() {
-    // this.querySubscription = this.apollo
-    //   .watchQuery<GetEventGroupById>({
-    //     query: GET_EVENTGROUP_BYID,
-    //     variables: {
-    //       id: this.eventgroupId,
-    //     },
-    //   })
-    //   .valueChanges.subscribe(({data}) => {
-    //     this.eventgroupId = data.eventGroup;
-    //   });
+
+    this.eventgroupId$ = this.apollo
+      .watchQuery<GetEventGroupIdByEventId>({
+        query: GET_EVENTGROUPID_BYEVENTID,
+        variables: {
+          eventId: this.eventDetailId,
+          usage: this.usage
+        },
+      })
+      .valueChanges.pipe(map((result) => result.data.eventEventGroupUsageEvent.eventGroupId));
   }
-  // ngOnDestroy() {
-  //   this.querySubscription.unsubscribe();
-  // }
 }
 

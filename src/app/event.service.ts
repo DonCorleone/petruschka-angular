@@ -204,6 +204,15 @@ export interface GetEventInfoById {
   eventDetails: EventDetail[];
 }
 
+export interface EventEventGroupUsageEvent {
+  __typename: string;
+  eventGroupId: number;
+}
+
+export interface GetEventGroupIdByEventId {
+  eventEventGroupUsageEvent: EventEventGroupUsageEvent;
+}
+
 @Injectable({
   providedIn: 'root'
 })
