@@ -1,16 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { EventDetail } from './event.service';
 
-export interface EventGroupOverview {
-  id: number;
-  name: string;
-  dateCreated: Date;
-}
+export const GET_EVENTGROUPS_BYEVENT_TAG = gql`
+  query {
+    eventDetails (query: { OR: [{facebookPixelId_ne: ""} {googleAnalyticsTracker_ne: ""}]}){
+      _id,
+      eventInfos{
+        eventName
+        bannerImagePath
+      }
+      facebookPixelId
+      googleAnalyticsTracker
+      start
+    }
+  }
+`;
 
-export interface GetEventGroupOverviews {
-  eventGroupOverviews: EventGroupOverview[];
+export interface GetEventDetailPrototypes {
+  eventDetails: EventDetail[];
 }
 
 export interface EventGroup {

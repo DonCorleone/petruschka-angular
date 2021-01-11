@@ -1,19 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventGroupOverview, GetEventGroupOverviews } from '../event-groups.service';
+import { GetEventDetailPrototypes, GET_EVENTGROUPS_BYEVENT_TAG } from '../event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/internal/operators/map';
-
-// We use the gql tag to parse our query string into a query document
-const GET_EVENT_GROUPS_INFOS = gql`
-  query GetEventGroupOverviews {
-    eventGroupOverviews{
-      name,
-      id,
-      dateCreated
-    }
-  }
-`;
+import { EventDetail } from '../event.service';
 
 @Component({
   selector: 'app-eventgroups',
@@ -22,14 +12,23 @@ const GET_EVENT_GROUPS_INFOS = gql`
 })
 export class EventGroupsComponent implements OnInit {
 
-  eventgroups$: Observable<EventGroupOverview[]>;
+  eventDetails$: Observable<EventDetail[]>;
+  eventDetailsTournee$: Observable<EventDetail[]>;
+  eventDetailsCD$: Observable<EventDetail[]>;
+
   loading: boolean;
 
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.eventgroups$ = this.apollo
-      .watchQuery<GetEventGroupOverviews>({query: GET_EVENT_GROUPS_INFOS})
-      .valueChanges.pipe(map((result) => result.data.eventGroupOverviews));
+    this.eventDetails$ = this.apollo
+      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
+      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.googleAnalyticsTracker == "Premiere")));
+    this.eventDetailsTournee$ = this.apollo
+      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
+      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.googleAnalyticsTracker == "Tournee")));
+    this.eventDetailsCD$ = this.apollo
+        .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
+        .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.facebookPixelId == "CD")));
   }
 }

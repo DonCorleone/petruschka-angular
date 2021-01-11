@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventGroupEventEvent, EventInfo } from '../event.service';
+import { EventGroupEventEvent } from '../event.service';
 
 @Component({
   selector: 'app-event-card',
@@ -20,5 +20,4 @@ export class EventCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

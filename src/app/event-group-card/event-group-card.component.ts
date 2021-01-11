@@ -1,20 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
-import { Observable, Subscription } from 'rxjs';
-import { EventGroup } from '../event-groups.service';
-import { GetEventGroupById } from '../event.service';
-
-const GET_CD_EVENTS = gql`
-  query {
-    eventDetails(query:{facebookPixelId:"CD"}){
-      facebookPixelId
-      eventInfos{
-        eventName
-        bannerImagePath
-      }
-    }
-  }
-`;
+import { gql, Subscription } from 'apollo-angular';
+import { EventDetail } from '../event.service';
 const GET_EVENTGROUP_BYID = gql`
   query GetEventGroupById($id: Int!) {
     eventGroup (query:{_id:$id}){
@@ -33,39 +19,37 @@ const GET_EVENTGROUP_BYID = gql`
 export class EventGroupCardComponent implements OnInit {
 
   get name() {
-    return (this.eventgroup && this.eventgroup.name) ? this.eventgroup.name : null;
+    return (this.eventDetail && this.eventDetail.eventInfos[0]) ? this.eventDetail.eventInfos[0].eventName: null;
   }
 
   get bannerImagePath() {
-    return (this.eventgroup && this.eventgroup.bannerImagePath) ? this.eventgroup.bannerImagePath : null;
+    return (this.eventDetail && this.eventDetail.eventInfos[0]) ? this.eventDetail.eventInfos[0].bannerImagePath : null;
   }
 
-  get eventGroupId() {
-    return (this.eventgroup && this.eventgroup._id) ? this.eventgroup._id : null;
+  get eventDetailId() {
+    return (this.eventDetail && this.eventDetail._id) ? this.eventDetail._id : null;
   }
 
-  eventgroup: EventGroup;
-  private querySubscription: Subscription;
+  @Input() eventDetail: EventDetail;
 
-  constructor(private apollo: Apollo) { }
-
-  @Input() eventgroupId: number;
+  eventgroupId: number;
   @Input() type: 'horizontal' | 'vertical' = 'vertical';
   @Input() showBuyButton: boolean;
 
   ngOnInit() {
-    this.querySubscription = this.apollo
-      .watchQuery<GetEventGroupById>({
-        query: GET_EVENTGROUP_BYID,
-        variables: {
-          id: this.eventgroupId,
-        },
-      })
-      .valueChanges.subscribe(({data}) => {
-        this.eventgroup = data.eventGroup;
-      });
+    // this.querySubscription = this.apollo
+    //   .watchQuery<GetEventGroupById>({
+    //     query: GET_EVENTGROUP_BYID,
+    //     variables: {
+    //       id: this.eventgroupId,
+    //     },
+    //   })
+    //   .valueChanges.subscribe(({data}) => {
+    //     this.eventgroupId = data.eventGroup;
+    //   });
   }
-  ngOnDestroy() {
-    this.querySubscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.querySubscription.unsubscribe();
+  // }
 }
+

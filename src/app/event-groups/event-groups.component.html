@@ -1,16 +1,35 @@
 <app-layout title="Vorstellungen">
   <p>
-      Here, you'll find everything you need to build a good looking and functional home office.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et ornare purus, quis ornare purus. Vivamus varius dui gravida tellus malesuada, at dapibus metus egestas.
   </p>
 
   <h3>
-      Vergange & Abgesagte & Anstehende Vorstellungen
+      Anstehende Vorstellungen
   </h3>
 
-  <div class="eventgroups-list">
-      <div *ngFor="let eventgroup of eventgroups$ | async" class="eventgroups-list__item">
-          <app-event-group-card  [eventgroupId]="eventgroup.id">
+  <div class="eventDetails-list">
+      <div *ngFor="let eventDetail of eventDetails$ | async" class="eventDetails-list__item">
+          <app-event-group-card  [eventDetail]="eventDetail">
           </app-event-group-card>
       </div>
+  </div>
+
+  <h3>
+    Tourneestücke
+  </h3>
+  <div class="eventDetails-list">
+    <div *ngFor="let eventDetail of eventDetailsTournee$ | async" class="eventDetails-list__item">
+        <app-event-group-card  [eventDetail]="eventDetail">
+        </app-event-group-card>
+    </div>
+  </div>
+  <h3>
+    Hörspiele
+  </h3>
+  <div class="eventDetails-list">
+    <div *ngFor="let eventDetail of eventDetailsCD$ | async" class="eventDetails-list__item">
+        <app-event-group-card  [eventDetail]="eventDetail">
+        </app-event-group-card>
+    </div>
   </div>
 </app-layout>

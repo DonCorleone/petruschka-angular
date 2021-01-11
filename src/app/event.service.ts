@@ -17,11 +17,11 @@ export interface EventGroupEvent {
 
 
 
-export interface EventInfo {
+export interface EventDetailEventInfo {
   id: number;
   eventId: number;
   languageId: number;
-  name: string;
+  eventName: string;
   organizerNameOnTickets: string;
   shortDescription: string;
   importantNotes: string;
@@ -133,7 +133,7 @@ export interface TicketType {
 }
 
 export interface EventDetail {
-  id: number;
+  _id: number;
   defaultLanguageId: number;
   organizerId: number;
   status: number;
@@ -177,7 +177,7 @@ export interface EventDetail {
   isBankInternalEvent: boolean;
   externalEventCode?: any;
   forceEmptySeats: number;
-  eventInfos: EventInfo[];
+  eventInfos: EventDetailEventInfo[];
   ticketTypes: TicketType[];
 }
 
@@ -190,13 +190,6 @@ export interface EventCalculationDefinition {
   vat: number;
   organizerId?: any;
   eventId?: any;
-}
-
-
-
-export interface EventOverview {
-  events: EventInfo[];
-  numberOfEvents: number;
 }
 
 export interface GetEventGroupById {

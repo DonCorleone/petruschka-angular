@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventGroupEventEvent, EventInfo, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
+import { EventDetailEventInfo, EventGroupEventEvent, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { EventGroup } from '../event-groups.service';
@@ -60,7 +60,7 @@ export class EventgroupDetailsComponent implements OnInit {
 
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;
-  eventInfoPrototype: EventInfo;
+  eventInfoPrototype: EventDetailEventInfo;
   artistsArray: job[];
 
   get locationName() {
@@ -162,5 +162,9 @@ export class EventgroupDetailsComponent implements OnInit {
     });
 
     return returnval;
+  }
+
+  ngOnDestroy() {
+    this.querySubscription.unsubscribe();
   }
 }
