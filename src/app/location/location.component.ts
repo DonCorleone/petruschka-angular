@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { } from '../locations.service';
-import { EventLocation, GetEventLocationByName, GET_LOCATION_BY_NAME } from '../models/location.models';
+import { LocationsService } from '../locations.service';
+import { EventLocation } from '../models/location.models';
 
 @Component({
   selector: 'app-location',
@@ -15,7 +14,8 @@ import { EventLocation, GetEventLocationByName, GET_LOCATION_BY_NAME } from '../
 export class LocationComponent implements OnInit {
 
   eventLocation$: Observable<EventLocation>;
-  constructor(private route: ActivatedRoute, private  apollo : Apollo, private sanitizer: DomSanitizer ) { }
+
+  constructor(private route: ActivatedRoute, private locationsService: LocationsService, private sanitizer: DomSanitizer ) { }
 
   @Input() eventLocationName:string;
 
@@ -27,13 +27,7 @@ export class LocationComponent implements OnInit {
     this.route.params
       .pipe(map(p => p.eventLocationName))
       .subscribe(id => {
-        this.eventLocation$ = this.apollo
-        .watchQuery<GetEventLocationByName>({
-          query: GET_LOCATION_BY_NAME,
-          variables: {
-            name: id
-          },})
-        .valueChanges.pipe(map((result) => result.data.eventLocation));
+        this.eventLocation$ = this.locationsService.GetEventLocation(id);
       })
   }
   transformHtml(htmlTextWithStyle) {
