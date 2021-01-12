@@ -2,13 +2,7 @@ import { gql } from "apollo-angular";
 import { } from "../services/event-groups.service";
 import { EventGroup } from "./event-group.models";
 
-export const GET_EVENTGROUPID_BYEVENTID = gql`
-  query GetEventGroupIdByEventId($eventId: Int!, $usage: String!) {
-    eventEventGroupUsageEvent (query:{eventId:$eventId, usage:$usage}){
-      eventGroupId
-    }
-  }
-`;
+
 
 export const GET_EVENTGROUP_BYID = gql`
 query GetEventGroupById($id: Int!) {

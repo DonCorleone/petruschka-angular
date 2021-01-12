@@ -199,7 +199,3 @@ export interface EventEventGroupUsageEvent {
   __typename: string;
   eventGroupId: number;
 }
-
-export interface GetEventGroupIdByEventId {
-  eventEventGroupUsageEvent: EventEventGroupUsageEvent;
-}

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
-import { EventDetail } from '../models/event.models';
+import { EventDetail, EventEventGroupUsageEvent } from '../models/event.models';
 
-export const GET_EVENTGROUPS_BYEVENT_TAG = gql`
+const GET_EVENTGROUPS_BYEVENT_TAG = gql`
   query {
     eventDetails (query: { OR: [{facebookPixelId_ne: ""} {googleAnalyticsTracker_ne: ""}]}){
       _id,
@@ -19,20 +19,45 @@ export const GET_EVENTGROUPS_BYEVENT_TAG = gql`
   }
 `;
 
-export interface GetEventDetailPrototypes {
+const GET_EVENTGROUPID_BYEVENTID = gql`
+  query GetEventGroupIdByEventId($eventId: Int!, $usage: String!) {
+    eventEventGroupUsageEvent (query:{eventId:$eventId, usage:$usage}){
+      eventGroupId
+    }
+  }
+`;
+
+interface GetEventDetailPrototypes {
   eventDetails: EventDetail[];
 }
+
+interface GetEventGroupIdByEventId {
+  eventEventGroupUsageEvent: EventEventGroupUsageEvent;
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventGroupsService {
 
-  public GetEventGroup(filterPredicate: any): Observable<EventDetail[]>{
+  constructor(private apollo: Apollo) { }
+
+  GetEventGroupID(eventDetailIdIn: number, usageIn: string): Observable<number> {
     return this.apollo
-    .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
-    .valueChanges.pipe(map((result) => result.data.eventDetails.filter(filterPredicate)));
+      .watchQuery<GetEventGroupIdByEventId>({
+        query: GET_EVENTGROUPID_BYEVENTID,
+        variables: {
+          eventId: eventDetailIdIn,
+          usage: usageIn
+        },
+      })
+      .valueChanges.pipe(map((result) => result.data.eventEventGroupUsageEvent.eventGroupId));
   }
 
-  constructor(private apollo: Apollo) { }
+  GetEventGroup(filterPredicateIn: any): Observable<EventDetail[]>{
+    return this.apollo
+      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
+      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(filterPredicateIn)));
+    }
 }

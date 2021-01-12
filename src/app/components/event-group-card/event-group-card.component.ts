@@ -1,10 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { } from '../../services/event.service';
-import { EventDetail, GetEventGroupIdByEventId } from '../../models/event.models';
-import { GET_EVENTGROUPID_BYEVENTID } from '../../models/event-group-event.models';
+import { EventDetail } from '../../models/event.models';
+import { EventGroupsService } from 'src/app/services/event-groups.service';
 
 @Component({
   selector: 'app-event-group-card',
@@ -32,19 +30,11 @@ export class EventGroupCardComponent implements OnInit {
 
   eventgroupId$: Observable<number>;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private eventGroupService: EventGroupsService) {}
 
   ngOnInit() {
 
-    this.eventgroupId$ = this.apollo
-      .watchQuery<GetEventGroupIdByEventId>({
-        query: GET_EVENTGROUPID_BYEVENTID,
-        variables: {
-          eventId: this.eventDetailId,
-          usage: this.usage
-        },
-      })
-      .valueChanges.pipe(map((result) => result.data.eventEventGroupUsageEvent.eventGroupId));
+    this.eventgroupId$ = this.eventGroupService.GetEventGroupID(this.eventDetailId, this.usage);
   }
 }
 
