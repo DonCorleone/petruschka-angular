@@ -4,16 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GetStaffByName, Staff } from '../staff.service';
-
-const GET_STAFF_BY_NAME = gql`
-query GetStaffByName($name: String!) {
-  staff(query:{name:$name}){
-    name
-    bio
-  }
-}
-`;
+import { GetStaffByName, GET_STAFF_BY_NAME, Staff } from '../models/staff.models';
+import { } from '../staff.service';
 
 @Component({
   selector: 'app-staff',

@@ -1,50 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventDetailEventInfo, EventGroupEventEvent, GetEventGroupById, GetEventInfoById, GetEventsByGroupId } from '../event.service';
+import { } from '../event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import { EventGroup } from '../event-groups.service';
+import {  } from '../event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
 import { DomSanitizer } from '@angular/platform-browser';
-
-const GET_EVENTGROUP_BYID = gql`
-  query GetEventGroupById($id: Int!) {
-    eventGroup (query:{_id:$id}){
-      name,
-      _id,
-      bannerImagePath
-    }
-  }
-`;
-
-const GET_EVENTS_BYGROUPID = gql`
-  query GetEventsByGroupId($eventGroupId: Int!){
-    eventGroupEvents(query:{eventGroupId:$eventGroupId}){
-      eventGroupId
-      events{
-        _id
-        name
-        start
-      }
-    }
-  }
-`;
-
-const GET_EVENTINFO_BYID = gql`
-  query GetEventByGroupId($eventId: Int!){
-    eventDetails(query:{_id:$eventId}){
-      eventInfos{
-        languageId
-        shortDescription
-        longDescription
-        address
-        location
-        bannerImagePath
-        artists
-      }
-    }
-  }
-`;
+import { EventGroupEventEvent, GetEventGroupById, GET_EVENTGROUP_BYID, GetEventsByGroupId, GET_EVENTS_BYGROUPID } from '../models/event-group-event.models';
+import { EventDetailEventInfo, GetEventInfoById, GET_EVENTINFO_BYID } from '../models/event.models';
+import { EventGroup } from '../models/event-group.models';
 
 interface job {
   name: string,

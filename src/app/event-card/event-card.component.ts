@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventGroupEventEvent } from '../event.service';
+import { } from '../event.service';
+import { EventGroupEventEvent } from '../models/event-group-event.models';
 
 @Component({
   selector: 'app-event-card',

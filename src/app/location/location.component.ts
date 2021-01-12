@@ -4,20 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { EventLocation, GetEventLocationByName } from '../locations.service';
-
-const GET_LOCATION_BY_NAME = gql`
-  query GetLocationByName($name: String!) {
-    eventLocation:location(query:{name:$name}){
-      name
-      street
-      postalCode
-      city
-      directions
-      info
-    }
-  }
-`;
+import { } from '../locations.service';
+import { EventLocation, GetEventLocationByName, GET_LOCATION_BY_NAME } from '../models/location.models';
 
 @Component({
   selector: 'app-location',

@@ -1,15 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { EventDetail, GetEventGroupIdByEventId, GetEventsByGroupId } from '../event.service';
-const GET_EVENTGROUPID_BYEVENTID = gql`
-  query GetEventGroupIdByEventId($eventId: Int!, $usage: String!) {
-    eventEventGroupUsageEvent (query:{eventId:$eventId, usage:$usage}){
-      eventGroupId
-    }
-  }
-`;
+import { } from '../event.service';
+import { EventDetail, GetEventGroupIdByEventId } from '../models/event.models';
+import { GET_EVENTGROUPID_BYEVENTID } from '../models/event-group-event.models';
 
 @Component({
   selector: 'app-event-group-card',
