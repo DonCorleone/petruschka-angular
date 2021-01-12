@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { } from '../event-groups.service';
+import { } from '../../services/event-groups.service';
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/internal/operators/map';
-import { } from '../event.service';
-import { EventDetail } from '../models/event.models';
-import { GetEventDetailPrototypes, GET_EVENTGROUPS_BYEVENT_TAG } from '../models/event-group.models';
+import { } from '../../services/event.service';
+import { EventDetail } from '../../models/event.models';
+import { GetEventDetailPrototypes, GET_EVENTGROUPS_BYEVENT_TAG } from '../../models/event-group.models';
 
 @Component({
   selector: 'app-eventgroups',

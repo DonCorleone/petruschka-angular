@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventGroupsComponent } from './event-groups/event-groups.component';
-import { EventgroupDetailsComponent } from './eventgroup-details/eventgroup-details.component';
-import { LocationComponent } from './location/location.component';
+import { EventGroupsComponent } from './components/event-groups/event-groups.component';
+import { EventgroupDetailsComponent } from './components/eventgroup-details/eventgroup-details.component';
+import { LocationComponent } from './components/location/location.component';
 import { RealmAuthGuardGuard } from './realm-auth-guard.guard';
-import { StaffComponent } from './staff/staff.component';
+import { StaffComponent } from './components/staff/staff.component';
 
 const routes: Routes = [
   {

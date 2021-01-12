@@ -1,5 +1,5 @@
 import { gql } from "apollo-angular";
-import { } from "../event-groups.service";
+import { } from "../services/event-groups.service";
 import { EventGroup } from "./event-group.models";
 
 export const GET_EVENTGROUPID_BYEVENTID = gql`

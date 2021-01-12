@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { } from '../event.service';
+import { } from '../../services/event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import {  } from '../event-groups.service';
+import {  } from '../../services/event-groups.service';
 import { Apollo, gql } from 'apollo-angular';
 import { DomSanitizer } from '@angular/platform-browser';
-import { EventGroupEventEvent, GetEventGroupById, GET_EVENTGROUP_BYID, GetEventsByGroupId, GET_EVENTS_BYGROUPID } from '../models/event-group-event.models';
-import { EventDetailEventInfo, GetEventInfoById, GET_EVENTINFO_BYID } from '../models/event.models';
-import { EventGroup } from '../models/event-group.models';
+import { EventGroupEventEvent, GetEventGroupById, GET_EVENTGROUP_BYID, GetEventsByGroupId, GET_EVENTS_BYGROUPID } from '../../models/event-group-event.models';
+import { EventDetailEventInfo, GetEventInfoById, GET_EVENTINFO_BYID } from '../../models/event.models';
+import { EventGroup } from '../../models/event-group.models';
 
 interface job {
   name: string,

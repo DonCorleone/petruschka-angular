@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { EventLocation } from './models/location.models';
+import { EventLocation } from '../models/location.models';
 
 interface GetEventLocationByName {
   eventLocation: EventLocation;

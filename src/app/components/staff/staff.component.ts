@@ -3,8 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Staff } from '../models/staff.models';
-import { StaffService } from '../staff.service';
+import { Staff } from '../../models/staff.models';
+import { StaffService } from '../../services/staff.service';
 
 @Component({
   selector: 'app-staff',

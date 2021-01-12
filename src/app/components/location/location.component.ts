@@ -3,8 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LocationsService } from '../locations.service';
-import { EventLocation } from '../models/location.models';
+import { LocationsService } from '../../services/locations.service';
+import { EventLocation } from '../../models/location.models';
 
 @Component({
   selector: 'app-location',

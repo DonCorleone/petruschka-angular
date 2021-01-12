@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { } from '../event.service';
-import { EventDetail, GetEventGroupIdByEventId } from '../models/event.models';
-import { GET_EVENTGROUPID_BYEVENTID } from '../models/event-group-event.models';
+import { } from '../../services/event.service';
+import { EventDetail, GetEventGroupIdByEventId } from '../../models/event.models';
+import { GET_EVENTGROUPID_BYEVENTID } from '../../models/event-group-event.models';
 
 @Component({
   selector: 'app-event-group-card',
