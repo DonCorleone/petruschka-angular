@@ -1,13 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { } from '../../services/event.service';
+import { EventService } from '../../services/event.service';
 import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
-import {  } from '../../services/event-groups.service';
-import { Apollo, gql } from 'apollo-angular';
 import { DomSanitizer } from '@angular/platform-browser';
-import { EventGroupEventEvent, GetEventGroupById, GET_EVENTGROUP_BYID, GetEventsByGroupId, GET_EVENTS_BYGROUPID } from '../../models/event-group-event.models';
-import { EventDetailEventInfo, GetEventInfoById, GET_EVENTINFO_BYID } from '../../models/event.models';
+import { EventGroupEventEvent} from '../../models/event-group-event.models';
+import { EventDetailEventInfo} from '../../models/event.models';
 import { EventGroup } from '../../models/event-group.models';
 
 interface job {
@@ -46,7 +44,7 @@ export class EventgroupDetailsComponent implements OnInit {
   private querySubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute, private  apollo : Apollo, private sanitizer: DomSanitizer ) { }
+    private route: ActivatedRoute, private eventService: EventService, private sanitizer: DomSanitizer ) { }
 
   // tslint:disable-next-line:no-inferrable-types
   @Input() showBuyButton: boolean = true;
@@ -55,39 +53,18 @@ export class EventgroupDetailsComponent implements OnInit {
     this.route.params
       .pipe(map(p => p.eventgroupId))
       .subscribe(id => {
-        this.querySubscription = this.apollo
-        .watchQuery<GetEventGroupById>({
-          query: GET_EVENTGROUP_BYID,
-          variables: {
-            id: id,
-          },
-        })
+        this.querySubscription = this.eventService.GetEventGroup(id)
         .valueChanges.subscribe(({data}) => {
           this.eventgroup = data.eventGroup;
         });
 
-        this.eventInfos$ = this.apollo
-        .watchQuery<GetEventsByGroupId>({
-          query: GET_EVENTS_BYGROUPID,
-          variables: {
-            eventGroupId: id,
-          },
-        })
-        .valueChanges
-          .pipe(map((result) => result.data.eventGroupEvents))
-          .pipe(map(p => p[0].events))
+        this.eventInfos$ = this.eventService.GetEventGroupEvents(id);
       });
 
     this.eventInfos$
       .pipe(map(p => p[0]._id))
       .subscribe(id => {
-        this.querySubscription = this.apollo
-        .watchQuery<GetEventInfoById>({
-          query: GET_EVENTINFO_BYID,
-          variables: {
-            eventId: id,
-          },
-        })
+        this.querySubscription = this.eventService.GetEventDetails(id)
         .valueChanges.subscribe(({data}) => {
           this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
           this.artistsArray = this.GetStaffLinks(this.eventInfoPrototype.artists);

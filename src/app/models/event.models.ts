@@ -1,21 +1,3 @@
-import { gql } from "apollo-angular";
-
-export const GET_EVENTINFO_BYID = gql`
-query GetEventByGroupId($eventId: Int!){
-  eventDetails(query:{_id:$eventId}){
-    eventInfos{
-      languageId
-      shortDescription
-      longDescription
-      address
-      location
-      bannerImagePath
-      artists
-    }
-  }
-}
-`;
-
 export interface EventDetailEventInfo {
   id: number;
   eventId: number;
@@ -191,9 +173,6 @@ export interface EventCalculationDefinition {
   eventId?: any;
 }
 
-export interface GetEventInfoById {
-  eventDetails: EventDetail[];
-}
 
 export interface EventEventGroupUsageEvent {
   __typename: string;
