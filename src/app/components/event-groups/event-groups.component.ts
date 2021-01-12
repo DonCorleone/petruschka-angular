@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { } from '../../services/event-groups.service';
+import { EventGroupsService } from '../../services/event-groups.service';
 import { Apollo } from 'apollo-angular';
-import { map } from 'rxjs/internal/operators/map';
-import { } from '../../services/event.service';
+import { Observable } from 'rxjs';
 import { EventDetail } from '../../models/event.models';
-import { GetEventDetailPrototypes, GET_EVENTGROUPS_BYEVENT_TAG } from '../../models/event-group.models';
 
 @Component({
   selector: 'app-eventgroups',
@@ -20,17 +17,11 @@ export class EventGroupsComponent implements OnInit {
 
   loading: boolean;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private eventGroupsService: EventGroupsService) {}
 
   ngOnInit() {
-    this.eventDetails$ = this.apollo
-      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
-      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.googleAnalyticsTracker == "Premiere")));
-    this.eventDetailsTournee$ = this.apollo
-      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
-      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.googleAnalyticsTracker == "Tournee")));
-    this.eventDetailsCD$ = this.apollo
-        .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTGROUPS_BYEVENT_TAG})
-        .valueChanges.pipe(map((result) => result.data.eventDetails.filter(p=>p.facebookPixelId == "CD")));
+    this.eventDetails$ = this.eventGroupsService.GetEventGroup(p=>p.googleAnalyticsTracker == "Premiere");
+    this.eventDetailsTournee$ = this.eventGroupsService.GetEventGroup(p=>p.googleAnalyticsTracker == "Tournee");
+    this.eventDetailsCD$ = this.eventGroupsService.GetEventGroup(p=>p.facebookPixelId == "CD");
   }
 }
