@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { GetStaffByName, GET_STAFF_BY_NAME, Staff } from '../models/staff.models';
-import { } from '../staff.service';
+import { Staff } from '../models/staff.models';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-staff',
@@ -16,7 +15,7 @@ export class StaffComponent implements OnInit {
 
   staff$: Observable<Staff>;
 
-  constructor(private route: ActivatedRoute, private  apollo : Apollo, private sanitizer: DomSanitizer ) { }
+  constructor(private route: ActivatedRoute, private staffService: StaffService, private sanitizer: DomSanitizer ) { }
 
   @Input() staffName:string;
 
@@ -24,14 +23,8 @@ export class StaffComponent implements OnInit {
 
     this.route.params
       .pipe(map(p => p.staffName))
-      .subscribe(id => {
-        this.staff$ = this.apollo
-        .watchQuery<GetStaffByName>({
-          query: GET_STAFF_BY_NAME,
-          variables: {
-            name: id
-          },})
-        .valueChanges.pipe(map((result) => result.data.staff));
+      .subscribe(nameIn => {
+        this.staff$ = this.staffService.GetStaff(nameIn);
       })
   }
 
