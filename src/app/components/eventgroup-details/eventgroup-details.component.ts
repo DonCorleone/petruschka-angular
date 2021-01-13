@@ -7,6 +7,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { EventGroupEventEvent} from '../../models/event-group-event.models';
 import { EventDetailEventInfo} from '../../models/event.models';
 import { EventGroup } from '../../models/event-group.models';
+import { EventGroupsService } from 'src/app/services/event-groups.service';
+import { EventEventGroupService } from 'src/app/services/event-event-group.service';
 
 interface job {
   name: string,
@@ -44,7 +46,9 @@ export class EventgroupDetailsComponent implements OnInit {
   private querySubscription: Subscription;
 
   constructor(
-    private route: ActivatedRoute, private eventService: EventService, private sanitizer: DomSanitizer ) { }
+    private route: ActivatedRoute, private eventService: EventService,
+    private eventGroupsService: EventGroupsService, private eventEventGroupsService: EventEventGroupService,
+    private sanitizer: DomSanitizer ) { }
 
   // tslint:disable-next-line:no-inferrable-types
   @Input() showBuyButton: boolean = true;
@@ -53,18 +57,18 @@ export class EventgroupDetailsComponent implements OnInit {
     this.route.params
       .pipe(map(p => p.eventgroupId))
       .subscribe(id => {
-        this.querySubscription = this.eventService.GetEventGroup(id)
+        this.querySubscription = this.eventGroupsService.GetEventGroup(id)
         .valueChanges.subscribe(({data}) => {
           this.eventgroup = data.eventGroup;
         });
 
-        this.eventInfos$ = this.eventService.GetEventGroupEvents(id);
+        this.eventInfos$ = this.eventEventGroupsService.GetEventGroupEvents(id);
       });
 
     this.eventInfos$
       .pipe(map(p => p[0]._id))
       .subscribe(id => {
-        this.querySubscription = this.eventService.GetEventDetails(id)
+        this.querySubscription = this.eventService.GetEventInfo(id)
         .valueChanges.subscribe(({data}) => {
           this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
           this.artistsArray = this.GetStaffLinks(this.eventInfoPrototype.artists);

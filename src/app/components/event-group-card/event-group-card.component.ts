@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { } from '../../services/event.service';
 import { EventDetail } from '../../models/event.models';
 import { EventGroupsService } from 'src/app/services/event-groups.service';
+import { EventEventGroupService } from 'src/app/services/event-event-group.service';
 
 @Component({
   selector: 'app-event-group-card',
@@ -30,11 +31,11 @@ export class EventGroupCardComponent implements OnInit {
 
   eventgroupId$: Observable<number>;
 
-  constructor(private eventGroupService: EventGroupsService) {}
+  constructor(private eventEventGroupService: EventEventGroupService) {}
 
   ngOnInit() {
 
-    this.eventgroupId$ = this.eventGroupService.GetEventGroupID(this.eventDetailId, this.usage);
+    this.eventgroupId$ = this.eventEventGroupService.GetEventGroupIdByEventId(this.eventDetailId, this.usage);
   }
 }
 

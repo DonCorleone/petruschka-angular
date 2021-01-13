@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EventGroupsService } from '../../services/event-groups.service';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { EventDetail } from '../../models/event.models';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-eventgroups',
@@ -17,11 +17,11 @@ export class EventGroupsComponent implements OnInit {
 
   loading: boolean;
 
-  constructor(private apollo: Apollo, private eventGroupsService: EventGroupsService) {}
+  constructor(private apollo: Apollo, private eventService: EventService) {}
 
   ngOnInit() {
-    this.eventDetails$ = this.eventGroupsService.GetEventGroup(p=>p.googleAnalyticsTracker == "Premiere");
-    this.eventDetailsTournee$ = this.eventGroupsService.GetEventGroup(p=>p.googleAnalyticsTracker == "Tournee");
-    this.eventDetailsCD$ = this.eventGroupsService.GetEventGroup(p=>p.facebookPixelId == "CD");
+    this.eventDetails$ = this.eventService.GetEventDetails(p=>p.googleAnalyticsTracker == "Premiere");
+    this.eventDetailsTournee$ = this.eventService.GetEventDetails(p=>p.googleAnalyticsTracker == "Tournee");
+    this.eventDetailsCD$ = this.eventService.GetEventDetails(p=>p.facebookPixelId == "CD");
   }
 }

@@ -2,25 +2,25 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
-import { EventGroupEvent, EventGroupEventEvent } from '../models/event-group-event.models';
 import { EventDetail } from '../models/event.models';
 import { EmptyObject } from 'apollo-angular/types';
-import { EventGroup } from '../models/event-group.models';
 
-const GET_EVENTS_BYGROUPID = gql`
-  query GetEventsByGroupId($eventGroupId: Int!){
-    eventGroupEvents(query:{eventGroupId:$eventGroupId}){
-      eventGroupId
-      events{
-        _id
-        name
-        start
+const GET_EVENTDETAILS_BYTAG = gql`
+  query {
+    eventDetails (query: { OR: [{facebookPixelId_ne: ""} {googleAnalyticsTracker_ne: ""}]}){
+      _id,
+      eventInfos{
+        eventName
+        bannerImagePath
       }
+      facebookPixelId
+      googleAnalyticsTracker
+      start
     }
   }
 `;
 
-const GET_EVENTINFO_BYID = gql`
+const GET_EVENTINFO_BYEVENTID = gql`
 query GetEventByGroupId($eventId: Int!){
   eventDetails(query:{_id:$eventId}){
     eventInfos{
@@ -36,64 +36,33 @@ query GetEventByGroupId($eventId: Int!){
 }
 `;
 
-const GET_EVENTGROUP_BYID = gql`
-query GetEventGroupById($id: Int!) {
-  eventGroup (query:{_id:$id}){
-    name,
-    _id,
-    bannerImagePath
-  }
-}
-`;
-
-interface GetEventsByGroupId {
-  eventGroupEvents: EventGroupEvent[]
-}
-
 interface GetEventInfoById {
   eventDetails: EventDetail[];
 }
 
-export interface GetEventGroupById {
-  eventGroup: EventGroup
+interface GetEventDetailPrototypes {
+  eventDetails: EventDetail[];
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  GetEventDetails(id: number) : QueryRef<GetEventInfoById, EmptyObject> {
+  GetEventInfo(id: number) : QueryRef<GetEventInfoById, EmptyObject> {
     return this.apollo
     .watchQuery<GetEventInfoById>({
-      query: GET_EVENTINFO_BYID,
+      query: GET_EVENTINFO_BYEVENTID,
       variables: {
         eventId: id,
       },
     });
   }
 
-  GetEventGroupEvents(eventGroupIdIn: number): Observable<EventGroupEventEvent[]> {
+  GetEventDetails(filterPredicateIn: any): Observable<EventDetail[]>{
     return this.apollo
-    .watchQuery<GetEventsByGroupId>({
-      query: GET_EVENTS_BYGROUPID,
-      variables: {
-        eventGroupId: eventGroupIdIn,
-      },
-    })
-    .valueChanges
-      .pipe(map((result) => result.data.eventGroupEvents))
-      .pipe(map(p => p[0].events))
-  }
-
-  GetEventGroup(idIn: number) {
-    return this.apollo
-    .watchQuery<GetEventGroupById>({
-      query: GET_EVENTGROUP_BYID,
-      variables: {
-        id: idIn,
-      },
-    })
-  }
+      .watchQuery<GetEventDetailPrototypes>({query: GET_EVENTDETAILS_BYTAG})
+      .valueChanges.pipe(map((result) => result.data.eventDetails.filter(filterPredicateIn)));
+    }
 
   constructor(private apollo: Apollo) { }
 }
