@@ -6,11 +6,11 @@ import { EventGroupsService } from 'src/app/services/event-groups.service';
 import { EventEventGroupService } from 'src/app/services/event-event-group.service';
 
 @Component({
-  selector: 'app-event-group-card',
-  templateUrl: './event-group-card.component.html',
-  styleUrls: ['./event-group-card.component.scss']
+  selector: 'app-event-detail-card',
+  templateUrl: './event-detail-card.component.html',
+  styleUrls: ['./event-detail-card.component.scss']
 })
-export class EventGroupCardComponent implements OnInit {
+export class EventDetailCardComponent implements OnInit {
 
   get name() {
     return (this.eventDetail && this.eventDetail.eventInfos[0]) ? this.eventDetail.eventInfos[0].eventName: null;

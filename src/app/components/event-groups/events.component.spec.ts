@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventGroupsComponent } from './event-groups.component';
+import { EventGroupsComponent } from './events.component';
 
 describe('EventGroupsComponent', () => {
   let component: EventGroupsComponent;

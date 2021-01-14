@@ -21,19 +21,19 @@ const GET_EVENTDETAILS_BYTAG = gql`
 `;
 
 const GET_EVENTINFO_BYEVENTID = gql`
-query GetEventByGroupId($eventId: Int!){
-  eventDetails(query:{_id:$eventId}){
-    eventInfos{
-      languageId
-      shortDescription
-      longDescription
-      address
-      location
-      bannerImagePath
-      artists
+  query GetEventByGroupId($eventId: Int!){
+    eventDetails(query:{_id:$eventId}){
+      eventInfos{
+        languageId
+        shortDescription
+        longDescription
+        address
+        location
+        bannerImagePath
+        artists
+      }
     }
   }
-}
 `;
 
 interface GetEventInfoById {

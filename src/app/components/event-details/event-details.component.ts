@@ -16,11 +16,11 @@ interface job {
 }
 
 @Component({
-  selector: 'app-eventgroup-details',
-  templateUrl: './eventgroup-details.component.html',
-  styleUrls: ['./eventgroup-details.component.scss']
+  selector: 'app-event-details',
+  templateUrl: './event-details.component.html',
+  styleUrls: ['./event-details.component.scss']
 })
-export class EventgroupDetailsComponent implements OnInit {
+export class EventDetailsComponent implements OnInit {
 
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;

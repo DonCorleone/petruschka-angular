@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventGroupsComponent } from './components/event-groups/event-groups.component';
-import { EventgroupDetailsComponent } from './components/eventgroup-details/eventgroup-details.component';
+import { EventGroupsComponent } from './components/event-groups/events.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { LocationComponent } from './components/location/location.component';
 import { RealmAuthGuardGuard } from './realm-auth-guard.guard';
 import { StaffComponent } from './components/staff/staff.component';
@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [ RealmAuthGuardGuard ]
   }, {
     path: 'eventgroups/:eventgroupId',
-    component: EventgroupDetailsComponent,
+    component: EventDetailsComponent,
     canActivate: [ RealmAuthGuardGuard ]
   }, {
     path: 'locations/:eventLocationName',

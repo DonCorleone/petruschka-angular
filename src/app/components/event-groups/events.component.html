@@ -9,8 +9,8 @@
 
   <div class="eventDetails-list">
       <div *ngFor="let eventDetail of eventDetails$ | async" class="eventDetails-list__item">
-          <app-event-group-card  [eventDetail]="eventDetail" usage="Premiere">
-          </app-event-group-card>
+          <app-event-detail-card  [eventDetail]="eventDetail" usage="Premiere">
+          </app-event-detail-card>
       </div>
   </div>
 
@@ -19,8 +19,8 @@
   </h3>
   <div class="eventDetails-list">
     <div *ngFor="let eventDetail of eventDetailsTournee$ | async" class="eventDetails-list__item">
-        <app-event-group-card  [eventDetail]="eventDetail" usage="Tournee">
-        </app-event-group-card>
+        <app-event-detail-card  [eventDetail]="eventDetail" usage="Tournee">
+        </app-event-detail-card>
     </div>
   </div>
   <h3>
@@ -28,8 +28,8 @@
   </h3>
   <div class="eventDetails-list">
     <div *ngFor="let eventDetail of eventDetailsCD$ | async" class="eventDetails-list__item">
-        <app-event-group-card  [eventDetail]="eventDetail" usage="CD">
-        </app-event-group-card>
+        <app-event-detail-card  [eventDetail]="eventDetail" usage="CD">
+        </app-event-detail-card>
     </div>
   </div>
 </app-layout>

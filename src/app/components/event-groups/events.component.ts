@@ -5,9 +5,9 @@ import { EventDetail } from '../../models/event.models';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
-  selector: 'app-eventgroups',
-  templateUrl: './event-groups.component.html',
-  styleUrls: ['./event-groups.component.scss']
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss']
 })
 export class EventGroupsComponent implements OnInit {
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventgroupDetailsComponent } from './eventgroup-details.component';
+import { EventDetailsComponent } from './event-details.component';
 
 describe('EventgroupDetailsComponent', () => {
-  let component: EventgroupDetailsComponent;
-  let fixture: ComponentFixture<EventgroupDetailsComponent>;
+  let component: EventDetailsComponent;
+  let fixture: ComponentFixture<EventDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventgroupDetailsComponent ]
+      declarations: [ EventDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventgroupDetailsComponent);
+    fixture = TestBed.createComponent(EventDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
