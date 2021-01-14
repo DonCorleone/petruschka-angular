@@ -6,7 +6,7 @@
       <span class="card-title">{{ name }}</span>
     </div>
     <div class="card-action">
-        <a [routerLink]="['/eventgroups/' + (eventgroupId$ | async)]">
+        <a [routerLink]="['/eventgroups', (eventgroupId$ | async), usage]">
           {{actionName}}
         </a>
     </div>

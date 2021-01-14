@@ -44,7 +44,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   get usage(): string {
-    return "Premiere";
+    return this.usageProp;
   }
 
   get locationLabel (): string{
@@ -61,7 +61,7 @@ export class EventDetailsComponent implements OnInit {
     private route: ActivatedRoute, private eventService: EventService,
     private eventGroupsService: EventGroupsService, private eventEventGroupsService: EventEventGroupService,
     private sanitizer: DomSanitizer ) { }
-
+    private usageProp:string;
   ngOnInit(): void {
     this.route.params
       .pipe(map(p => p.eventgroupId))
@@ -73,6 +73,11 @@ export class EventDetailsComponent implements OnInit {
 
         this.eventInfos$ = this.eventEventGroupsService.GetEventGroupEvents(id);
       });
+
+    this.route.params.pipe(map(p=>p.usage))
+        .subscribe(usage => {
+          this.usageProp = usage;
+        })
 
     this.eventInfos$
       .pipe(map(p => p[0]._id))

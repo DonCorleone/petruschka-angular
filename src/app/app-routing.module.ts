@@ -12,7 +12,7 @@ const routes: Routes = [
     component: EventGroupsComponent,
     canActivate: [ RealmAuthGuardGuard ]
   }, {
-    path: 'eventgroups/:eventgroupId',
+    path: 'eventgroups/:eventgroupId/:usage',
     component: EventDetailsComponent,
     canActivate: [ RealmAuthGuardGuard ]
   }, {
