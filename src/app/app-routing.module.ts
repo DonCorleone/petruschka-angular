@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventGroupsComponent } from './components/event-groups/events.component';
+import { EventGroupsComponent } from './components/events/events.component';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { LocationComponent } from './components/location/location.component';
 import { RealmAuthGuardGuard } from './realm-auth-guard.guard';

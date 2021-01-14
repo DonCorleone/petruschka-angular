@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './layout/layout.component';
-import { EventGroupsComponent } from './components/event-groups/events.component';
+import { EventGroupsComponent } from './components/events/events.component';
 import { EventDetailCardComponent } from './components/event-detail-card/event-detail-card.component';
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
