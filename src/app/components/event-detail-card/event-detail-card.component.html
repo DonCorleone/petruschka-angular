@@ -7,7 +7,7 @@
     </div>
     <div class="card-action">
         <a [routerLink]="['/eventgroups/' + (eventgroupId$ | async)]" *ngIf="!showBuyButton">
-            Details
+          {{actionName}}
         </a>
     </div>
 </div>

@@ -30,12 +30,21 @@ export class EventDetailCardComponent implements OnInit {
   @Input() showBuyButton: boolean;
 
   eventgroupId$: Observable<number>;
+  actionName: string;
 
   constructor(private eventEventGroupService: EventEventGroupService) {}
 
   ngOnInit() {
 
     this.eventgroupId$ = this.eventEventGroupService.GetEventGroupIdByEventId(this.eventDetailId, this.usage);
+
+    if (this.usage == "Premiere") {
+      this.actionName = "Details / Kartenkauf";
+    } else if (this.usage == "CD") {
+      this.actionName = "Details / CD- Kauf";
+    } else {
+      this.actionName = "Details / Buchungsanfrage";
+    }
   }
 }
 
