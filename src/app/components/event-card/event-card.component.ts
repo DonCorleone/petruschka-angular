@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { } from '../../services/event.service';
 import { EventGroupEventEvent } from '../../models/event-group-event.models';
+import { time } from 'console';
 
 @Component({
   selector: 'app-event-card',
@@ -17,7 +18,10 @@ export class EventCardComponent implements OnInit {
 
   @Input() type: 'horizontal' | 'vertical' = 'horizontal';
   @Input() eventInfo: EventGroupEventEvent;
-  @Input() showBuyButton: boolean;
+
+  get showBuyButton(): boolean{
+    return (new Date(this.eventInfo.start) > new Date());
+  }
 
   ngOnInit(): void {
   }

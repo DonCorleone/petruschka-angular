@@ -9,19 +9,29 @@
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-        Location
+       Plot
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div [innerHTML]="plot"></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+        {{locationLabel}}
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
           <a [routerLink]="['/locations', locationName]">{{ locationName }}</a>
         </div>
     </div>
-
   </div>
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-      Artists
+      Mitwirkende
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">
@@ -36,20 +46,33 @@
         </div>
     </div>
   </div>
-  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+  <div class="card" *ngIf="usage=='Premiere'" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-       Plot
+      Aufführungen
     </div>
-    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
-        <div class="card-content">
-          <div [innerHTML]="plot"></div>
-        </div>
+    <div class="card-content">
+      <div class="event-list">
+        <ul *ngFor="let eventInfo of eventInfos$ | async" class="collection">
+          <app-event-card  [eventInfo]="eventInfo">
+          </app-event-card>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="event-list">
-    <ul *ngFor="let eventInfo of eventInfos$ | async" class="collection">
-      <app-event-card  [eventInfo]="eventInfo" [showBuyButton]="showBuyButton">
-      </app-event-card>
-    </ul>
+  <div class="card" *ngIf="usage=='CD'" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Bestellung Hörbuch auf CD
+    </div>
+    <div class="card-content">
+        <a [routerLink]="['/buyhere', helloWorld]">nathalie</a>
+    </div>
+  </div>
+  <div class="card" *ngIf="usage=='Tournee'" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Buchungsanfrage
+    </div>
+    <div class="card-content">
+        <a [routerLink]="['/bookhere', helloWorld]">regi</a>
+    </div>
   </div>
 </app-layout>

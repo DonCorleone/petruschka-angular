@@ -27,11 +27,11 @@ export class EventDetailsComponent implements OnInit {
   eventInfoPrototype: EventDetailEventInfo;
   artistsArray: job[];
 
-  get locationName() {
+  get locationName() : string {
     return (this.eventInfoPrototype && this.eventInfoPrototype.location) ? this.eventInfoPrototype.location : null;
   }
 
-  get artists() {
+  get artists() : job[] {
     return (this.artistsArray && this.artistsArray.length > 0) ? this.artistsArray : null;
   }
 
@@ -39,8 +39,20 @@ export class EventDetailsComponent implements OnInit {
     return (this.eventInfoPrototype && this.eventInfoPrototype.longDescription) ? this.transformHtml(this.eventInfoPrototype.longDescription) : null;
   }
 
-  get flyerImagePath() {
+  get flyerImagePath() : string {
     return (this.eventInfoPrototype && this.eventInfoPrototype.bannerImagePath) ? this.eventInfoPrototype.bannerImagePath : null;
+  }
+
+  get usage(): string {
+    return "Premiere";
+  }
+
+  get locationLabel (): string{
+    if (this.usage == "Premiere") {
+      return "Spielstätte";
+    } else {
+      return "Das Stück wurde aufgeführt im";
+    }
   }
 
   private querySubscription: Subscription;
@@ -49,9 +61,6 @@ export class EventDetailsComponent implements OnInit {
     private route: ActivatedRoute, private eventService: EventService,
     private eventGroupsService: EventGroupsService, private eventEventGroupsService: EventEventGroupService,
     private sanitizer: DomSanitizer ) { }
-
-  // tslint:disable-next-line:no-inferrable-types
-  @Input() showBuyButton: boolean = true;
 
   ngOnInit(): void {
     this.route.params

@@ -27,7 +27,6 @@ export class EventDetailCardComponent implements OnInit {
   @Input() eventDetail: EventDetail;
   @Input() usage: string;
   @Input() type: 'horizontal' | 'vertical' = 'vertical';
-  @Input() showBuyButton: boolean;
 
   eventgroupId$: Observable<number>;
   actionName: string;

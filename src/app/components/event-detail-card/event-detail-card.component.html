@@ -6,7 +6,7 @@
       <span class="card-title">{{ name }}</span>
     </div>
     <div class="card-action">
-        <a [routerLink]="['/eventgroups/' + (eventgroupId$ | async)]" *ngIf="!showBuyButton">
+        <a [routerLink]="['/eventgroups/' + (eventgroupId$ | async)]">
           {{actionName}}
         </a>
     </div>
