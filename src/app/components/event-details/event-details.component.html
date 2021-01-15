@@ -5,6 +5,14 @@
       <span>{{ eventgroup.name }}</span>
   </div>
 
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div class="shortDesc">{{ eventInfoPrototype.shortDescription }}</div>
+        </div>
+    </div>
+  </div>
+
   <img [src]="flyerImagePath" class="bannerImage" />
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
@@ -20,7 +28,7 @@
 
   <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-        {{locationLabel}}
+        {{ locationLabel }}
     </div>
     <div [ngClass]="{'card-stacked': type === 'horizontal'}">
         <div class="card-content">

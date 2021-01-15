@@ -35,6 +35,10 @@ export class EventDetailsComponent implements OnInit {
     return (this.artistsArray && this.artistsArray.length > 0) ? this.artistsArray : null;
   }
 
+  get shortDesc() : string {
+    return (this.eventInfoPrototype && this.eventInfoPrototype.shortDescription) ? this.eventInfoPrototype.shortDescription : null;
+  }
+
   get plot() {
     return (this.eventInfoPrototype && this.eventInfoPrototype.longDescription) ? this.transformHtml(this.eventInfoPrototype.longDescription) : null;
   }
