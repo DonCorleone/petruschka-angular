@@ -10,9 +10,9 @@ import { EventDetailCardComponent } from './components/event-detail-card/event-d
 import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import {APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
-import {HttpLink} from 'apollo-angular/http';
+import { APOLLO_OPTIONS } from 'apollo-angular';
+import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+import { HttpLink } from 'apollo-angular/http';
 
 import * as realm from './realm';
 import { HttpHeaders } from '@angular/common/http';
@@ -21,13 +21,13 @@ import { StaffComponent } from './components/staff/staff.component';
 const uri = realm.graphqlUrl;
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
-	return {
-		link: httpLink.create({
-			uri,
-			headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
-		}),
-		cache: new InMemoryCache()
-	};
+  return {
+    link: httpLink.create({
+      uri,
+      headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
+    }),
+    cache: new InMemoryCache()
+  };
 }
 
 @NgModule({
@@ -39,12 +39,11 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     EventDetailsComponent,
     EventCardComponent,
     LocationComponent,
-    StaffComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // ScullyLibModule,
     HttpClientModule,
     ScullyLibModule,
   ],
