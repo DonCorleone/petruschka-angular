@@ -1,19 +1,12 @@
-
-<app-layout [title]="staff.name" *ngIf="( staff$ | async ) as staff">
+<app-layout [title]="staffName ? staffName : staffTitle">
 
   <div class="actions">
-    <a [routerLink]="['/']" class="actions__link">Staff</a>
-    <span class="actions__separator"> ➡ </span>
-    <span>{{ staff.name }}</span>
+    <a [routerLink]="['/']" class="actions__link">Mitwirkende</a>
   </div>
-  <div class="card-panel">
-    <div class="row">
-      <div class="col s12 m4 l3">
-        <img [src]="GetImageUrl(staff.name)" alt="" class="responsive-img"> <!-- notice the "circle" class -->
-      </div>
-      <div class="col s12 m8 l9">
-        <div [innerHTML]="staff.bio"></div>
-      </div>
+  <div class="staff-list">
+    <div *ngFor="let staff of staffs$ | async">
+      <app-staff-card  [staff]="staff">
+      </app-staff-card>
     </div>
   </div>
 </app-layout>

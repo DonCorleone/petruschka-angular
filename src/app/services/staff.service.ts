@@ -1,20 +1,21 @@
+import { getQueryPredicate } from '@angular/compiler/src/render3/view/util';
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Staff } from '../models/staff.models';
 
-const GET_STAFF_BY_NAME = gql`
-query GetStaffByName($name: String!) {
-  staff(query:{name:$name}){
-    name
-    bio
+const GET_STAFFS = gql`
+  query GetStaffByName {
+    staffs {
+      name
+      bio
+    }
   }
-}
 `;
 
-interface GetStaffByName {
-  staff: Staff;
+interface GetStaffs{
+  staffs: Staff[];
 };
 
 @Injectable({
@@ -24,14 +25,15 @@ export class StaffService {
 
   constructor(private apollo: Apollo) { }
 
-  public GetStaff(nameIn: string): Observable<Staff>  {
+  public GetStaffs(nameIn: string): Observable<Staff[]>  {
+
     return this.apollo
-        .watchQuery<GetStaffByName>({
-          query: GET_STAFF_BY_NAME,
+        .watchQuery<GetStaffs>({
+          query: GET_STAFFS,
           variables: {
             name: nameIn
           },})
-        .valueChanges.pipe(map((result) => result.data.staff));
+        .valueChanges.pipe(map((result) => result.data.staffs.filter(nameIn? p => p.name == nameIn : o => o.name != "")));
   }
 }
 

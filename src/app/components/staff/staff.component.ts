@@ -13,26 +13,18 @@ import { StaffService } from '../../services/staff.service';
 })
 export class StaffComponent implements OnInit {
 
-  staff$: Observable<Staff>;
+  staffs$: Observable<Staff[]>;
+  staffTitle:string = "Mitwirkende";
 
   constructor(private route: ActivatedRoute, private staffService: StaffService, private sanitizer: DomSanitizer ) { }
-
   @Input() staffName:string;
-
   ngOnInit(): void {
 
     this.route.params
       .pipe(map(p => p.staffName))
       .subscribe(nameIn => {
-        this.staff$ = this.staffService.GetStaff(nameIn);
+        this.staffName = nameIn;
+        this.staffs$ = this.staffService.GetStaffs(nameIn);
       })
-  }
-
-  transformHtml(htmlTextWithStyle) {
-    return this.sanitizer.bypassSecurityTrustHtml(htmlTextWithStyle);
-  }
-
-  GetImageUrl(name: string): string {
-    return '../assets/images/' + encodeURIComponent(name) + '.jpg'
   }
 }

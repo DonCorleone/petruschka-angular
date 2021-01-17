@@ -20,6 +20,10 @@ const routes: Routes = [
     component: LocationComponent,
     canActivate: [ RealmAuthGuardGuard ]
   }, {
+    path: 'staff',
+    component: StaffComponent,
+    canActivate: [ RealmAuthGuardGuard ]
+  }, {
     path: 'staff/:staffName',
     component: StaffComponent,
     canActivate: [ RealmAuthGuardGuard ]
