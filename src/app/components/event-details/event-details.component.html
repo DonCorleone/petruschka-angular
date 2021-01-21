@@ -69,10 +69,13 @@
   </div>
   <div class="card" *ngIf="usage=='CD'" [ngClass]="{'horizontal': type === 'horizontal'}">
     <div class="card-title">
-      Bestellung Hörbuch auf CD
+      Bestellung CD - Preis: CHF 22.00 (inkl. Porto)
     </div>
     <div class="card-content">
-        <a [routerLink]="['/buyhere', helloWorld]">nathalie</a>
+      <!--<a href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung_CD_Das_Drachenei"></a> -->
+      <p>Per E-Mail an <a target="_blank" [href]="'mailto:nathaliehildebrand?subject=Bestellung CD ' + eventgroup.name">nathaliehildebrand@kinderkultur.ch</a></p>
+      <p>Betreff: Bestellung CD '{{ eventgroup.name }}'</p>
+      <p>Zusätzliche Angaben in der Mail: Anzahl CDs, Name und Adresse</p>
     </div>
   </div>
   <div class="card" *ngIf="usage=='Tournee'" [ngClass]="{'horizontal': type === 'horizontal'}">
@@ -81,7 +84,8 @@
     </div>
     <div class="card-content">
       <!-- <a href="mailto:regulaaufdermaur@kinderkultur.ch?subject=Buchungsanfrage_Drachenei">regulaaufdermaur@kinderkultur.ch</a> -->
-      Per E-Mail an <a target="_blank" [href]="'mailto:' + reservationMail + '?subject=Buchungsanfrage: ' + eventgroup.name">{{ reservationMail }}</a>, Betreff: Buchungsanfrage '{{ eventgroup.name }}'
+      <p>Per E-Mail an <a target="_blank" [href]="'mailto:' + reservationMail + '?subject=Buchungsanfrage ' + eventgroup.name">{{ reservationMail }}</a></p>
+      <p>Betreff: Buchungsanfrage '{{ eventgroup.name }}'</p>
     </div>
   </div>
 </app-layout>
