@@ -10,9 +10,10 @@ const GET_EVENTDETAILS_BYTAG = gql`
     eventDetails (query: { OR: [{facebookPixelId_ne: ""} {googleAnalyticsTracker_ne: ""}]}){
       _id,
       eventInfos{
-        eventName
+        name
         bannerImagePath
       }
+      notificationEmail
       facebookPixelId
       googleAnalyticsTracker
       start
@@ -32,12 +33,14 @@ const GET_EVENTINFO_BYEVENTID = gql`
         bannerImagePath
         artists
       }
+      notificationEmail
     }
   }
 `;
 
 interface GetEventInfoById {
   eventDetails: EventDetail[];
+  notificationEmail: String;
 }
 
 interface GetEventDetailPrototypes {

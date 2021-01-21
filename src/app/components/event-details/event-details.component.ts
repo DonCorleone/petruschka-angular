@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { EventGroupEventEvent} from '../../models/event-group-event.models';
-import { EventDetailEventInfo} from '../../models/event.models';
+import { EventDetail, EventDetailEventInfo} from '../../models/event.models';
 import { EventGroup } from '../../models/event-group.models';
 import { EventGroupsService } from 'src/app/services/event-groups.service';
 import { EventEventGroupService } from 'src/app/services/event-event-group.service';
@@ -25,6 +25,7 @@ export class EventDetailsComponent implements OnInit {
   eventgroup: EventGroup;
   eventInfos$: Observable<EventGroupEventEvent[]>;
   eventInfoPrototype: EventDetailEventInfo;
+  eventDetail: EventDetail;
   artistsArray: job[];
 
   get locationName() : string {
@@ -47,6 +48,10 @@ export class EventDetailsComponent implements OnInit {
     return (this.eventInfoPrototype && this.eventInfoPrototype.bannerImagePath) ? this.eventInfoPrototype.bannerImagePath : null;
   }
 
+  get reservationMail() : string {
+    return (this.eventDetail && this.eventDetail.notificationEmail) ? this.eventDetail.notificationEmail : null;
+  }
+
   get usage(): string {
     return this.usageProp;
   }
@@ -65,7 +70,9 @@ export class EventDetailsComponent implements OnInit {
     private route: ActivatedRoute, private eventService: EventService,
     private eventGroupsService: EventGroupsService, private eventEventGroupsService: EventEventGroupService,
     private sanitizer: DomSanitizer ) { }
+
     private usageProp:string;
+
   ngOnInit(): void {
     this.route.params
       .pipe(map(p => p.eventgroupId))
@@ -88,7 +95,8 @@ export class EventDetailsComponent implements OnInit {
       .subscribe(id => {
         this.querySubscription = this.eventService.GetEventInfo(id)
         .valueChanges.subscribe(({data}) => {
-          this.eventInfoPrototype = data.eventDetails[0].eventInfos.find(p => p.languageId == 1);
+          this.eventDetail = data.eventDetails[0];
+          this.eventInfoPrototype = this.eventDetail.eventInfos.find(p => p.languageId == 1);
           this.artistsArray = this.GetStaffLinks(this.eventInfoPrototype.artists);
         });
     });

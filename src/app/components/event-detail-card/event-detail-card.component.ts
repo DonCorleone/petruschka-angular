@@ -13,7 +13,7 @@ import { EventEventGroupService } from 'src/app/services/event-event-group.servi
 export class EventDetailCardComponent implements OnInit {
 
   get name() {
-    return (this.eventDetail && this.eventDetail.eventInfos[0]) ? this.eventDetail.eventInfos[0].eventName: null;
+    return (this.eventDetail && this.eventDetail.eventInfos[0]) ? this.eventDetail.eventInfos[0].name: null;
   }
 
   get bannerImagePath() {

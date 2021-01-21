@@ -2,7 +2,7 @@ export interface EventDetailEventInfo {
   id: number;
   eventId: number;
   languageId: number;
-  eventName: string;
+  name: string;
   organizerNameOnTickets: string;
   shortDescription: string;
   importantNotes: string;
