@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64731"
+  },
+  "name": "Marianne Hofer",
+  "bio": "<p>Dozentin für Didaktik, Schultheater und Figurentheater am Kantonalen  Kindergartenseminar Luzern</p><p>2003 Gründung des Figurentheaters PETRUSCHKA.</p><p>Dozentin für Figurenspiel an der Pädagogischen Hochschule Luzern für Kindergartenund Unterstufe.</p><p>2013 - 2018 Zusammenarbeit mit dem Lucerne Festival Young.</p><p>Schreibt jeweils die Stücke für das Figurentheater, baut Figuren und macht Regie.</p>Seit 2010 ist das Sandzeichnen ein Teil der jeweiligen Theaterproduktionen desFigurentheaters PETRUSCHKA</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64734"
+  },
+  "name": "Robert Hofer",
+  "bio": "<p>Baut das technische Innenleben der Figuren, ist für Bühnenbau, Licht und Teatertechnik zuständig.</p><p>Er steigt auch mal auf die Bühne, wenn „Not am Manne“ ist.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64737"
+  },
+  "name": "Regula auf der Maur",
+  "bio": "<p>Dipl. Kindergartenlehrperson, Dipl. Figurenspieltherapeutin und Dipl. Psychomotoriktherapeutin und Dozentin für Figurenspiel an der Pädagogischen Hochschule Luzern.</p><p>Mutter von zwei Kindern.</p><p>Regula Auf der Maur spielt bei den Winterstücken im Naturmuseum und im PETRUSCHKA Wandertheater mit.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef6473a"
+  },
+  "name": "Nathalie Hildenbrand Isler",
+  "bio": "<p>Dipl. Kindergartenlehrperson. Mutter von drei Kindern.</p><p>Dozentin für Figurenbau in der Pädagogischen Hochschule Luzern.</p><p>Sie kreiert die jeweiligen Hörspiel-CD`s zu den einzelnen Winterstücken vom Figurentheater PETRUSCHKA.</p><p>Nathalie Hildebrand Isler spielt bei den Winterstücken im Naturmuseum und im PETRUSCHKA Wandertheater mit.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef6473d"
+  },
+  "name": "Burgener Sextett",
+  "bio": "<p>Im Rahmen des Lucerne Festival werden die Figurentheater von jungen Musikern begleitet.</p><p>Orchester: Stefanie Burgener Klavier, Jodok Vuille Violoncello, Elsbeth Burgener Flöte, Sofia Burgener Flöte.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64740"
+  },
+  "name": "Andreas Gilomen",
+  "bio": "<p>Begleitung der Lieder für die Figurentheater, Schlosswochenlieder und Soundtrack der Winterfigurentheater.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64743"
+  },
+  "name": "Linus Wieland",
+  "bio": "<p>Webmaster, Schlosswochen Grillkoch und Vater von zwei Kindern.</p>"
+},{
+  "_id": {
+    "$oid": "5fefa3cc10b02e457ef64746"
+  },
+  "name": "Pascal Isler-Hildebrand",
+  "bio": "<p>Mediasupport</p>"
+}]

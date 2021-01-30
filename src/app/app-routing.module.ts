@@ -1,16 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventGroupsComponent } from './event-groups/event-groups.component';
-import { EventgroupDetailsComponent } from './eventgroup-details/eventgroup-details.component';
+import { EventGroupsComponent } from './components/events/events.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
+import { LocationComponent } from './components/location/location.component';
+import { RealmAuthGuardGuard } from './realm-auth-guard.guard';
+import { StaffComponent } from './components/staff/staff.component';
 
 const routes: Routes = [
   {
     path: '',
     component: EventGroupsComponent,
+    canActivate: [ RealmAuthGuardGuard ]
   }, {
-    path: 'eventgroups/:eventgroupId',
-    component: EventgroupDetailsComponent,
-  }];
+    path: 'eventgroups/:eventgroupId/:usage',
+    component: EventDetailsComponent,
+    canActivate: [ RealmAuthGuardGuard ]
+  }, {
+    path: 'locations/:eventLocationName',
+    component: LocationComponent,
+    canActivate: [ RealmAuthGuardGuard ]
+  }, {
+    path: 'staff',
+    component: StaffComponent,
+    canActivate: [ RealmAuthGuardGuard ]
+  }, {
+    path: 'staff/:staffName',
+    component: StaffComponent,
+    canActivate: [ RealmAuthGuardGuard ]
+  }
+];
 
 
 @NgModule({

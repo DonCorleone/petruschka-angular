@@ -1,0 +1,12 @@
+<li class="collection-item">
+  <span>{{ eventInfo.start | date:'EEEE, d. MMMM y, HH:mm' : '' :'de-CH'}} Uhr
+    <a [href]="[eventLink]" *ngIf="showBuyButton"
+      class="secondary-content">
+      <img src="http://cockpitv2.ticketino.com/imagesnew/de/button_kaufen_klein_03.1.png" alt="Tickets bei TICKETINO"
+        border="0" />
+    </a>
+  </span>
+  <span *ngIf="!showBuyButton" class="secondary-content">
+    Vorstellung vorüber.
+  </span>
+</li>

@@ -1,0 +1,13 @@
+<div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+  <div class="card-image">
+      <img [src]="bannerImagePath">
+  </div>
+    <div class="card-content">
+      <span class="card-title">{{ name }}</span>
+    </div>
+    <div class="card-action">
+        <a [routerLink]="['/eventgroups', (eventgroupId$ | async), usage]">
+          {{actionName}}
+        </a>
+    </div>
+</div>

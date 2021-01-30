@@ -1,0 +1,12 @@
+<app-layout [title]="staffName ? staffName : staffTitle">
+
+  <div class="actions">
+    <a [routerLink]="['/']" class="actions__link">Mitwirkende</a>
+  </div>
+  <div class="staff-list">
+    <div *ngFor="let staff of staffs$ | async">
+      <app-staff-card  [staff]="staff">
+      </app-staff-card>
+    </div>
+  </div>
+</app-layout>

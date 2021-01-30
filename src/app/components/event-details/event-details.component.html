@@ -1,0 +1,91 @@
+<app-layout [title]="eventgroup.name" *ngIf="eventgroup">
+  <div class="actions">
+      <a [routerLink]="['/']" class="actions__link">Veranstaltungen</a>
+      <span class="actions__separator"> ➡ </span>
+      <span>{{ eventgroup.name }}</span>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div class="shortDesc">{{ shortDesc }}</div>
+        </div>
+    </div>
+  </div>
+
+  <img [src]="flyerImagePath" class="bannerImage" />
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+       Plot
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div [innerHTML]="plot"></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+        {{ locationLabel }}
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <a [routerLink]="['/locations', locationName]">{{ locationName }}</a>
+        </div>
+    </div>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Mitwirkende
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+        <div class="card-content">
+          <div *ngFor="let job of artistsArray">
+            <div>
+              {{ job.name }} {{ job.name !== '' ? ' : ' : '' }}
+              <span *ngFor="let jobsharer of job.jobsharers; let isLast=last">
+                <a [routerLink]="['/staff', jobsharer]">{{ jobsharer }}</a> {{isLast ? '' : ' & '}}
+              </span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="card" *ngIf="usage=='Premiere'" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Aufführungen
+    </div>
+    <div class="card-content">
+      <div class="event-list">
+        <ul *ngFor="let eventInfo of eventInfos$ | async" class="collection">
+          <app-event-card  [eventInfo]="eventInfo">
+          </app-event-card>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf="usage=='CD'" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Bestellung CD - Preis: CHF 22.00 (inkl. Porto)
+    </div>
+    <div class="card-content">
+      <!--<a href="mailto:nathaliehildebrand@kinderkultur.ch?subject=Bestellung_CD_Das_Drachenei"></a> -->
+      <p>Per E-Mail an <a target="_blank" [href]="'mailto:nathaliehildebrand?subject=Bestellung CD ' + eventgroup.name">nathaliehildebrand@kinderkultur.ch</a></p>
+      <p>Betreff: Bestellung CD '{{ eventgroup.name }}'</p>
+      <p>Zusätzliche Angaben in der Mail: Anzahl CDs, Name und Adresse</p>
+    </div>
+  </div>
+  <div class="card" *ngIf="usage=='Tournee'" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Buchungsanfrage
+    </div>
+    <div class="card-content">
+      <!-- <a href="mailto:regulaaufdermaur@kinderkultur.ch?subject=Buchungsanfrage_Drachenei">regulaaufdermaur@kinderkultur.ch</a> -->
+      <p>Per E-Mail an <a target="_blank" [href]="'mailto:' + reservationMail + '?subject=Buchungsanfrage ' + eventgroup.name">{{ reservationMail }}</a></p>
+      <p>Betreff: Buchungsanfrage '{{ eventgroup.name }}'</p>
+    </div>
+  </div>
+</app-layout>

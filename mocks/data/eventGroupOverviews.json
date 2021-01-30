@@ -1,0 +1,36 @@
+{
+  "data": {
+    "eventGroupOverviews": [
+      {
+        "__typename": "EventGroupOverview",
+        "dateCreated": "2020-11-29T19:09:18.01Z",
+        "id": 3123,
+        "name": "De schlaui Igel Pic"
+      },
+      {
+        "__typename": "EventGroupOverview",
+        "dateCreated": "2020-11-29T19:01:20.093Z",
+        "id": 3122,
+        "name": "Di chli Nixe und s’Walross"
+      },
+      {
+        "__typename": "EventGroupOverview",
+        "dateCreated": "2020-10-17T14:33:35.417Z",
+        "id": 3080,
+        "name": "De Frau Emma iri Tier"
+      },
+      {
+        "__typename": "EventGroupOverview",
+        "dateCreated": "2020-10-11T14:53:22.587Z",
+        "id": 3061,
+        "name": "Testgruppe"
+      },
+      {
+        "__typename": "EventGroupOverview",
+        "dateCreated": "2020-07-20T07:19:01.477Z",
+        "id": 2870,
+        "name": "De tapferi Puck rettet s'Elferiich"
+      }
+    ]
+  }
+}

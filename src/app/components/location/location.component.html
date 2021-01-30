@@ -1,0 +1,48 @@
+
+<app-layout [title]="eventLocation.name" *ngIf="( eventLocation$ | async ) as eventLocation">
+
+  <div class="actions">
+    <a [routerLink]="['/']" class="actions__link">Locations</a>
+    <span class="actions__separator"> ➡ </span>
+    <span>{{ eventLocation.name }}</span>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+        Address
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+      <div class="card-content">
+        <address>
+          {{ eventLocation.name }} <br>
+          {{ eventLocation.street }} <br>
+          {{ eventLocation.postalCode }} {{ eventLocation.city }}
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <img class="responsive-img" [src]="GetImageUrl(eventLocation.name)">
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+      Directions
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+      <div class="card-content">
+        <div [innerHTML] = "eventLocation.directions"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" [ngClass]="{'horizontal': type === 'horizontal'}">
+    <div class="card-title">
+       Info
+    </div>
+    <div [ngClass]="{'card-stacked': type === 'horizontal'}">
+      <div class="card-content">
+        <div [innerHTML] = "eventLocation.info"></div>
+      </div>
+    </div>
+  </div>
+</app-layout>
