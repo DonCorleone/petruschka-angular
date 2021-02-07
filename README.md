@@ -9,6 +9,10 @@ Inspired by
 * [JSON Mock Server Part 1](https://medium.com/@websleengur/mock-data-for-angular-5-applications-with-json-server-part-1-d377eced223b) [Part 2](https://medium.com/@websleengur/mock-data-for-angular-5-applications-with-json-server-part-2-final-427bd68005bb)
 * [JSON-Server](https://github.com/typicode/json-server)
 
+## Mongo DB Realm, Graphql, Apollo, Angular
+
+* [All in One](https://medium.com/@HadiAlbinsaad/mongodb-realm-graphql-apollo-angular-902d5e91016b)
+
 Ticketino API: [api.ticketino.com](https://api.ticketino.com/docs/index.html)
 
 FakeDB JSON Repo: [my-json-server](https://my-json-server.typicode.com/DonCorleone/FakeDbPetruschka/)
