@@ -1,11 +1,10 @@
 <app-layout title="Vorstellungen">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et ornare purus, quis ornare purus. Vivamus varius dui gravida tellus malesuada, at dapibus metus egestas.
-  </p>
-
-  <h3>
-      Anstehende Vorstellungen
-  </h3>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Album example</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    </div>
+  </section>
 
   <div class="eventDetails-list">
       <div *ngFor="let eventDetail of eventDetails$ | async" class="eventDetails-list__item">

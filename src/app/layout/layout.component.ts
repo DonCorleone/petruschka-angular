@@ -11,6 +11,7 @@ export class LayoutComponent implements OnInit {
   }
 
   @Input() title = 'EventGroups';
+  public isMenuCollapsed = true;
 
   ngOnInit(): void {
   }
